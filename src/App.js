@@ -1,10 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './components/Nav'
+import CardRow from './components/CardRow'
 
 function App() {
   return (
-  );
+    <div>
+      <Navbar></Navbar>
+      <div className="container">
+        <CardRow />
+      </div>
+    </div>);
 }
 
 export default App;

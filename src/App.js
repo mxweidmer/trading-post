@@ -7,7 +7,6 @@ function App() {
     <div>
       <Navbar></Navbar>
       <div className="container">
-        <h1>Oh hello</h1>
         <CardRow />
       </div>
     </div>);

@@ -13,9 +13,9 @@ function CardRow (){
         description="This one will because its really long and stuff yeah, bruh....."
         image="https://i.imgur.com/ELJlQz1.jpg"/>
         <Card 
-        title="GoT meme"
-        description="lul, bran went to Avengers during the battle"
-        image="https://i.imgur.com/ELJlQz1.jpg"/>
+        title="Mechanized turtle"
+        description="Who want dis turtle? tree fiddy"
+        image="https://i.imgur.com/wX9MX57.jpg"/>
         </div>
     )
 }

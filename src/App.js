@@ -5,9 +5,9 @@ import {SearchBar, SeachBtn, SearchCategory} from './components/Search'
 import { Row } from './components/Grid';
 import Postform from './components/Postform';
 //=================AWS======================
-import Amplify from '@aws-amplify/core';
-import aws_exports from "./aws-exports";
-
+//import Amplify from '@aws-amplify/core';
+//import aws_exports from "./aws-exports";
+//import { withAuthenticator } from 'aws-amplify-react';
 //=======================================
 function App() {
   return (
@@ -27,4 +27,8 @@ function App() {
     </div>);
 }
 
-export default App;
+export default withAuthenticator(App, {
+  // Render a sign out button once logged in
+  includeGreetings: false, 
+  // Show only certain components
+  });

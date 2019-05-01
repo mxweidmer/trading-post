@@ -14,7 +14,9 @@
     "@aws-amplify/core": "^1.0.25",
     "aws-amplify-react": "^2.3.6",
     "add": "^2.0.6",
-    "amplify": "0.0.11"
+    "amplify": "0.0.11",
+    "auth": "0.0.9",
+    "aws-amplify": "^1.1.26"
   },
   "scripts": {
     "predeploy": "npm run build",

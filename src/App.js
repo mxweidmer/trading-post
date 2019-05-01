@@ -12,7 +12,7 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          <Route exact path="/trading-post/" component={landing} />
+          <Route exact path="/" component={landing} />
           <Route exact path="/trading-post/profile" component={profile} />
           <Route exact path="/trading-post/search" component={search} />
           <Route exact path="/trading-post/usersearch" component={usersearch} />

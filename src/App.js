@@ -4,7 +4,11 @@ import CardRow from './components/CardRow'
 import {SearchBar, SeachBtn, SearchCategory} from './components/Search'
 import { Row } from './components/Grid';
 import Postform from './components/Postform';
+//=================AWS======================
+import Amplify from '@aws-amplify/core';
+import aws_exports from "./aws-exports";
 
+//=======================================
 function App() {
   return (
     <div>

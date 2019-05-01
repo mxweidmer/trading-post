@@ -1,26 +1,26 @@
-import React from 'react';
-import Navbar from './components/Nav'
-import CardRow from './components/CardRow'
-import {SearchBar, SeachBtn, SearchCategory} from './components/Search'
-import { Row } from './components/Grid';
-import Postform from './components/Postform';
+import React from "react";
+import landing from "./pages/landing"
+import profile from "./pages/profile"
+import usersearch from "./pages/usersearch"
+import search from "./pages/search"
+import Nav from "./components/Nav";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <Navbar></Navbar>
-     <Row>
-
-      <SearchBar></SearchBar>
-       </Row>
-     
-      <div className="container">
-      
-        <CardRow />
-
-      <Postform></Postform> 
+    <Router>
+      <div>
+        <Nav />
+        <Switch>
+          <Route exact path="/trading-post/" component={landing} />
+          <Route exact path="/trading-post/profile" component={profile} />
+          <Route exact path="/trading-post/search" component={search} />
+          <Route exact path="/trading-post/usersearch" component={usersearch} />
+        
+        </Switch>
       </div>
-    </div>);
+    </Router>
+  );
 }
 
 export default App;

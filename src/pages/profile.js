@@ -1,6 +1,6 @@
 //import React from 'react'
 import React, { Component } from "react";
-import { List } from '../components/ProfileCard';
+import { ProfileTop, List } from '../components/ProfileCard';
 import { Row } from '../components/Grid';
 import API from "../utils/API";
 
@@ -10,13 +10,13 @@ class Profile extends Component {
         _id: "5cca717879f2d60017aed66e",
         isLoaded: false,
         error: null,
-        firstName: "",
+        firstName: "Spongebob",
         lastName: "",
         city: "",
         state: "",
         phone: "",
-        items: [],
-        wishlist: [],
+        items: [{name:"toy boat", id: "1", link: "#"}],
+        wishlist: [{name:"boat toy", id:"2", link: "#"}],
         searchTerm: "",
         pg: "Profile",
         categories: ['General', 'Books', 'Electronics', 'Jewerly', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances']
@@ -41,45 +41,29 @@ class Profile extends Component {
     };
 
     render() {
+        console.log(this.state)
         return (
             <div>
                 <br />
-               {/*  <Profile
+                
+                <ProfileTop
                     image="https://i.imgur.com/H37kxPH.jpg"
-                    username="Doggo McPuppers"
-                    description="Average doggo, normal doggo things in progress." /> */}
+                    username= {this.state.firstName}
+                    description="Average doggo, normal doggo things in progress." />
 
                 <Row>
                     <List
                         listTitle="Posts"
                         items={
-                            [{
-                                id: "1",
-                                name: "burrito",
-                                link: "#"
-
-                            },
-                            {
-                                id: "2",
-                                name: "purrito",
-                                link: "#"
-                            }]
+                            this.state.items
                         }
 
                     />
                     <List
                         listTitle="Wishlist"
                         items={
-                            [{
-                                id: "3",
-                                name: "Bowl of Cereal",
-                                link: "#"
-                            },
-                            {
-                                id: "4",
-                                name: "Overcooked, raw sushi",
-                                link: "#"
-                            }
+                            [
+                                this.state.wishlist
                             ]}
                     />
                 </Row>

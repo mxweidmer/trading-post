@@ -3,12 +3,12 @@ import React from 'react'
 const buttonStyle = {
     padding: "0px 2px 2px 2px"
 }
-
+/*
 const cardStyle = {
     height: "200px",
     width: "auto"
 }
-
+*/
 const modalStyle = {
     height: "auto",
     width: "500px"

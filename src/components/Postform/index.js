@@ -1,3 +1,4 @@
+/*
 import React from "react";
 import { Container, Row } from "../Grid";
 import style from './style.css'
@@ -40,3 +41,6 @@ function PostForm() {
     );
 }
 export default PostForm
+
+
+*/

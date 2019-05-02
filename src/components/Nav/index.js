@@ -1,5 +1,5 @@
 import React from 'react'
-
+/*
 function NavBar (){
     return (
         <nav>
@@ -11,7 +11,7 @@ function NavBar (){
                 <li><a href="collapsible.html">Wishlist</a></li>
             </ul>
 
-            <ul className="right hide-on-med-and-down">
+           <ul className="right hide-on-med-and-down">
                 <li><a className="waves-effect waves-light btn">Sign in<i
                             className="material-icons right">account_circle</i></a></li>
                 <li><a className="waves-effect waves-light btn">Sign up<i
@@ -24,3 +24,5 @@ function NavBar (){
 }
 
 export default NavBar;
+
+*/

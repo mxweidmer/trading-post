@@ -1,0 +1,19 @@
+{
+    "tradeaws": {
+        "awscloudformation": {
+            "AuthRoleName": "trading-post-tradeaws-20190501235528-authRole",
+            "UnauthRoleArn": "arn:aws:iam::295444561615:role/trading-post-tradeaws-20190501235528-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::295444561615:role/trading-post-tradeaws-20190501235528-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "trading-post-tradeaws-20190501235528-deployment",
+            "UnauthRoleName": "trading-post-tradeaws-20190501235528-unauthRole",
+            "StackName": "trading-post-tradeaws-20190501235528",
+            "StackId": "arn:aws:cloudformation:us-east-1:295444561615:stack/trading-post-tradeaws-20190501235528/4ad03c90-6ca7-11e9-ab5e-1251e602a9c6"
+        },
+        "categories": {
+            "auth": {
+                "cognito99554339": {}
+            }
+        }
+    }
+}

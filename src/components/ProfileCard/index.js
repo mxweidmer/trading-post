@@ -2,12 +2,12 @@ import React from 'react'
 
 export function Profile(props) {
     return (
-        <div class="row">
-            <div class="container">
-                <div class="col s4">
-                    <img src={props.image} class="circle profile-pic responsive-img z-depth-4" />
+        <div className="row">
+            <div className="container">
+                <div className="col s4">
+                    <img src={props.image} className="circle profile-pic responsive-img z-depth-4" />
                 </div>
-                <div class="col s7 push-s1">
+                <div className="col s7 push-s1">
                     <h3>{props.username}</h3>
                     <p>{props.description}</p>
                 </div>
@@ -18,16 +18,15 @@ export function Profile(props) {
 
 export function List(props) {
     return (
-        <div class="row">
-            <div class="container">
-                <div class="col s5">
+            <div className="container">
+                <div className="col s5 push-s1">
                     <table>
                         <tr>
-                            <th class="center">{props.listTitle}</th>
+                            <th className="center">{props.listTitle}</th>
                         </tr>
-                        {props.items.map(item => (
+                        {props.items.map(items => (
                             <tr key={items.id}>
-                                <td><a href={items.link}>{item.name}</a></td>
+                                <td><a href={items.link}>{items.name}</a></td>
                             </tr>
                         ))
                         }
@@ -37,6 +36,5 @@ export function List(props) {
                 </div>
 
             </div>
-        </div>
     )
 }

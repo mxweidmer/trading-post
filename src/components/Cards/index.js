@@ -34,19 +34,19 @@ function Card(props) {
             <div className="col s4">
                 <div  className="card z-depth-4">
                     <div className="card-image" >
-                        <a className="modal-trigger" href={"#" + props.description}><img className="responsive-img" style={cardImageStyle} src={props.image} alt={props.title} /></a>
+                        <a className="modal-trigger" href={"#" + props.id}><img className="responsive-img" style={cardImageStyle} src={props.image} alt={props.title} /></a>
                         <span className="card-title center-align">{props.title}</span>
                     </div>
                     <div className="card-content">
                         <p className="truncate">{props.description}</p>
-                        <a className="card-action btn text-center green modal-trigger" style={buttonStyle} href={"#" + props.description}>More Details</a>
+                        <a className="card-action btn text-center green modal-trigger" style={buttonStyle} href={"#" + props.id}>More Details</a>
                     </div>
                 </div>
             </div>
-            <div style={modalStyle} id={props.description} className="modal animated flipInY">
+            <div style={modalStyle}  className="modal animated flipInY" id={props.id}>
                 <div className="modal-content">
                     <h4 className="center-align">{props.title}</h4>
-                    <img className="responsive-img centerpalign" style={modalImageStyle} src={props.image} alt={props.title} />
+                    <img className="responsive-img center-align" style={modalImageStyle} src={props.image} alt={props.title} />
                     <p>{props.description}</p>
                 </div>
                 <div className="modal-footer">

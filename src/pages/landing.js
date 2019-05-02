@@ -76,7 +76,8 @@ render(){
     
       <div className="container">
       
-        <CardRow />
+        <CardRow 
+        items={this.state.returnedItems}/>
 
      {/*  <Postform></Postform>  */}
       </div>

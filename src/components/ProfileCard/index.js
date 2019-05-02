@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function Profile(props) {
+export function ProfileTop(props) {
     return (
         <div className="row">
             <div className="container">
@@ -18,23 +18,25 @@ export function Profile(props) {
 
 export function List(props) {
     return (
-            <div className="container">
-                <div className="col s5 push-s1">
-                    <table>
+        <div className="container">
+            <div className="col s5 push-s1">
+                <table>
+                    <tbody>
                         <tr>
                             <th className="center">{props.listTitle}</th>
                         </tr>
+
                         {props.items.map(items => (
                             <tr key={items.id}>
                                 <td><a href={items.link}>{items.name}</a></td>
                             </tr>
                         ))
                         }
+                    </tbody>
 
-
-                    </table>
-                </div>
-
+                </table>
             </div>
+
+        </div>
     )
 }

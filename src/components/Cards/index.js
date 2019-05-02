@@ -34,12 +34,12 @@ function Card(props) {
             <div className="col s4">
                 <div  className="card z-depth-4">
                     <div className="card-image" >
-                        <a className="modal-trigger" href={"#" + props.id}><img className="responsive-img" style={cardImageStyle} src={props.image} alt={props.title} /></a>
+                        <a className="modal-trigger" href={`#${props.id}`}><img className="responsive-img" style={cardImageStyle} src={props.image} alt={props.title} /></a>
                         <span className="card-title center-align">{props.title}</span>
                     </div>
                     <div className="card-content">
                         <p className="truncate">{props.description}</p>
-                        <a className="card-action btn text-center green modal-trigger" style={buttonStyle} href={"#" + props.id}>More Details</a>
+                        <a className="card-action btn text-center green modal-trigger" style={buttonStyle} href={`#${props.id}`}>More Details</a>
                     </div>
                 </div>
             </div>

@@ -24,7 +24,7 @@ loadItems = () => {
     .then(
       res => { 
         this.setState({ returnedItems: res.data, isLoaded: true }) 
-        console.log(res.data)
+        // console.log(res.data)
       },
       error => {
         this.setState({ isLoaded: true, error });

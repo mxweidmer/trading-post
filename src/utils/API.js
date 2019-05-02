@@ -11,11 +11,11 @@ export default {
     },
     //get request for the create a new item form
     createNewItem: function () {
-        return axios.get("https://trading-post-server.herokuapp.com/api/items/:userid")
+        return axios.post("https://trading-post-server.herokuapp.com/api/items/:userid")
     },
     //get request to receive a user's ifo with his/her items and the wishlist
-    createNewItem: function () {
-        return axios.get("https://trading-post-server.herokuapp.com/api/users/:id")
+    getUserInfo: function (userid) {
+        return axios.get("https://trading-post-server.herokuapp.com/api/users/" + userid)
     },
     /* createNewItem: function() {
         return axios.post("Localhost:3000/api/items/:userid")

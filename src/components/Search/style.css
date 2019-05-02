@@ -6,3 +6,10 @@ form {
     margin: auto;
     padding: 45px;
 }
+
+.categorydrop {
+    margin-top: 20px;
+    padding: 45px;
+    float: left;
+    max-width: 100%;
+}

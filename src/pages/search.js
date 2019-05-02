@@ -16,7 +16,7 @@ function App() {
       
         <CardRow />
 
-     {/*  <Postform></Postform>  */}
+
       </div>
     </div>);
 }

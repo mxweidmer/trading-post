@@ -4,6 +4,7 @@ import profile from "./pages/profile"
 import usersearch from "./pages/usersearch"
 import search from "./pages/search"
 import noMatch from "./pages/noMatch"
+import postitem from "./pages/postitem"
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/trading-post/profile" component={profile} />
           <Route exact path="/trading-post/search" component={search} />
           <Route exact path="/trading-post/usersearch" component={usersearch} />
+          <Route exact path="/trading-post/postitem" component={postitem} />
           <Route component={noMatch} />        
         </Switch>
       </div>

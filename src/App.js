@@ -5,6 +5,7 @@ import usersearch from "./pages/usersearch"
 import search from "./pages/search"
 import noMatch from "./pages/noMatch"
 import postitem from "./pages/postitem"
+import item from "./pages/item"
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/trading-post/search" component={search} />
           <Route exact path="/trading-post/usersearch" component={usersearch} />
           <Route exact path="/trading-post/postitem" component={postitem} />
+          <Route exact path="/trading-post/item" component={item} />
           <Route component={noMatch} />        
         </Switch>
       </div>

@@ -6,22 +6,33 @@ import { Row } from '../components/Grid';
 import API from "../utils/API";
 
 class PostItem extends Component {
- 
-render(){
+
+  state = {
+    title: "",
+    picture: "",
+    description: "",
+    selectedCategory: "General",
+    condition: "",
+    categories: ['General', 'Books', 'Electronics', 'Jewerly', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances']
+  };
+
+  
+
+  render() {
     return (
       <div>
-    
-       
+
+
         <div className="container">
-        
-  
-    <Postform> </Postform>  <PostFormBtn></PostFormBtn> 
+
+
+          <Postform> </Postform>  <PostFormBtn></PostFormBtn>
         </div>
       </div>
-      )
-    }
-    
+    )
   }
-  
-  export default PostItem;
-  
+
+}
+
+export default PostItem;
+

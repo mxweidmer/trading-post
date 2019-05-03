@@ -15,7 +15,7 @@ class Landing extends Component {
     searchTerm: "",
     pg: "Landing",
     selectedCategory: "General",
-    categories: ['General', 'Books', 'Electronics', 'Jewerly', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances']
+    categories: ['General', 'Books', 'Electronics', 'Jewelry', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances']
   };
 
   handleInputChange = event => {

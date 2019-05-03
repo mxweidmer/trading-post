@@ -6,7 +6,7 @@ import { SearchBar } from '../components/Search'
 import { Row, Container } from '../components/Grid';
 import API from "../utils/API";
 import { SearchBtn } from "../components/SearchBtn";
-import 'react-dropdown/style.css';
+/* import 'react-dropdown/style.css'; */
 
 class Landing extends Component {
 
@@ -15,8 +15,7 @@ class Landing extends Component {
     searchTerm: "",
     pg: "Landing",
     selectedCategory: "General",
-    categories: ['General', 'Books', 'Electronics', 'Jewerly', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances'],
-    options: ['General', 'Books', 'Electronics', 'Jewerly', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances']
+    categories: ['General', 'Books', 'Electronics', 'Jewerly', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances']
   };
 
   handleInputChange = event => {
@@ -39,7 +38,6 @@ class Landing extends Component {
 
   componentDidMount() {
     this.loadItems();
-
   }
 
   loadItems = () => {
@@ -60,36 +58,41 @@ class Landing extends Component {
 
   render() {
     return (
-      <div>
-        <div className="container">
+      <div className="container">
+        <div>
+          
+          
           <form className="search">
-            <div>
+          <div className="row">
+
+            <div className="col s12 m5 l5" style={{'margin-top': '15px'}}>
               <select value={this.state.selectedCategory}
                 onChange={(e) => this.setState({ selectedCategory: e.target.value })}>
                 {this.state.categories.map((category) => <option key={category} value={category}>{category}</option>)}
               </select>
             </div>
-            <div className="input-field col s12 m10">
+
+            <div className="input-field col s12 m5 l5">
               <i class="material-icons prefix">search</i>
               <input id="search" type="search" name="searchTerm" value={this.state.searchTerm} onChange={this.handleInputChange} required />
               <label for="search">Seach for items</label>
             </div>
-            {/*  <SearchBar
-            value={this.state.searchTerm}
-            onChange={this.handleInputChange}
-            name="searchTerm"
-            placeholder="Search for item"
-          /> */}
+
+            <div className="col s12 m2 l2" style={{'margin-top': '10px'}}>
             <SearchBtn
               onClick={this.handleFormSubmit}
             />
+            </div>
+
+          </div>
           </form>
+     
         </div>
 
         {/*  <SearchBar></SearchBar> */}
 
 
-        <div className="container">
+        <div>
 
           <CardRow
             items={this.state.returnedItems} />

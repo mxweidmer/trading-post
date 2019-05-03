@@ -4,11 +4,7 @@ export default {
     //get most recently added items on the landing page
     getRecentItems: function () {
         return axios.get("https://trading-post-server.herokuapp.com/api/items/dateDown")
-    },
-    // Gets items based on a search term/category - neds more work
-    searchItem: function (search) {
-        return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + search); //change the url based on our api
-    },
+    },       
     //post request for the create a new item
     createNewItem: function () {
         return axios.post("https://trading-post-server.herokuapp.com/api/items/:userid")
@@ -35,9 +31,11 @@ export default {
         console.log("searchTerm: " + searchTerm);
         return axios.get("https://trading-post-server.herokuapp.com/api/categories/" + category + "/" + searchTerm)
     },
-    /* createNewItem: function() {
-        return axios.post("Localhost:3000/api/items/:userid")
+    //create a new user (post method for signing up)
+    addNewUser: function() {
+        return axios.post("https://trading-post-server.herokuapp.com/api/users")
     },
+    /*
     updateItem: function() {
         return axios.put("Localhost:3000/api/items/:itemId")
     },

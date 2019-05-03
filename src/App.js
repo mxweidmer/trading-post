@@ -7,6 +7,9 @@ import noMatch from "./pages/noMatch"
 import postitem from "./pages/postitem"
 import item from "./pages/item"
 import Nav from "./components/Nav";
+import signin from "./pages/signin";
+import signup from "./pages/signup";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -21,6 +24,9 @@ function App() {
           <Route exact path="/trading-post/usersearch" component={usersearch} />
           <Route exact path="/trading-post/postitem" component={postitem} />
           <Route exact path="/trading-post/item" component={item} />
+          <Route exact path="/trading-post/signin" component={signin} />
+          <Route exact path="/trading-post/signup" component={signup} />
+
           <Route component={noMatch} />        
         </Switch>
       </div>

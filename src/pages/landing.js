@@ -33,7 +33,7 @@ class Landing extends Component {
     API.getSearchedItems(this.state.selectedCategory, this.state.searchTerm)
     .then(res => {
       console.log(res.data);
-      this.setState({ returnedItems: res.data,  selectedCategory: "General",  searchTerm: "" });     
+      this.setState({ returnedItems: res.data, searchTerm: "" });     
     })
   };
 

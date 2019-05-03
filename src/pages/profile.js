@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { ProfileTop, List } from '../components/ProfileCard';
 import { Row } from '../components/Grid';
+import Nav from '../components/Nav'
 import API from "../utils/API";
 
 class Profile extends Component {
@@ -55,6 +56,7 @@ class Profile extends Component {
         console.log(this.state)
         return (
             <div>
+                
                 <br />
                 
                 <ProfileTop

@@ -39,19 +39,8 @@ function Card(props) {
                     </div>
                     <div className="card-content">
                         <p className="truncate">{props.description}</p>
-                        <a className="card-action btn text-center green modal-trigger" style={buttonStyle} href={`#${props.id}`}>More Details</a>
+                        <a className="card-action btn text-center green modal-trigger" style={buttonStyle} href={`/trading-post/item/${props.id}`}> More Details</a>
                     </div>
-                </div>
-            </div>
-            <div id={props.id} style={modalStyle}  className="modal animated flipInY" >
-                <div className="modal-content">
-                    <h4 className="center-align">{props.title}</h4>
-                    <img className="responsive-img center-align" style={modalImageStyle} src={props.image} alt={props.title} />
-                    <p>{props.description}</p>
-                </div>
-                <div className="modal-footer">
-                    <a href="#" className="modal-close waves-effect green waves-red btn-flat">Add to wishlist</a>
-                    <a href="#!" className="modal-close waves-effect red waves-red btn-flat">Close</a>
                 </div>
             </div>
         </div>

@@ -8,7 +8,8 @@ const imageStyle = {
 }
 
 const buttonStyle = {
-    padding: "2px, 2px, 2px, 2px"
+    padding: "2px, 2px, 2px, 2px",
+    margin: "2px, 2px, 2px, 2px"
 }
 
 function ItemCard(props) {
@@ -18,13 +19,14 @@ function ItemCard(props) {
         <div className="container">
             <div className="col s10 z-depth-4">
                 <div className="card ">
+                <h2 className="center">{props.title}</h2>
+                        <div className="row">
                     <div className="card-image" >
                         <img className="responsive-img" style={imageStyle} src={props.picture} alt={props.title} />
 
                     </div>
                     <div className="card-content">
-                        <h2 className="center">{props.title}</h2>
-                        <div className="row">
+                        
                             <h5>Description</h5>
                             <div className="col s8">
                                 <p>{props.description}</p>

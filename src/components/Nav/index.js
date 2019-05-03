@@ -6,9 +6,8 @@ function NavBar (){
         <div className="nav-wrapper cyan darken-3">
             <a href="/" className="brand-logo center">The Trading Post</a>
             <ul id="nav-mobile" className="left hide-on-med-and-down">
-                <li><a href="/"><img src="logo_trans.gif" style={{'margin-bottom':'-10px', 'margin-right': '7px'}}></img>Home</a></li>
-                <li><a href="badges.html">Account</a></li>
-                <li><a href="collapsible.html">Wishlist</a></li>
+                <li><a href="/"><img src={require('../../logo_trans.gif')} style={{'margin-bottom':'-10px', 'margin-right': '7px'}}></img>Home</a></li>
+                <li><a href="/trading-post/item">Item Page</a></li>
             </ul>
 
             <ul className="right hide-on-med-and-down">

@@ -1,90 +1,101 @@
-//import React from 'react';
+
 import React, { Component } from "react";
 
 import CardRow from '../components/CardRow'
-import {SearchBar} from '../components/Search'
+import { SearchBar } from '../components/Search'
 import { Row, Container } from '../components/Grid';
 import API from "../utils/API";
 import { SearchBtn } from "../components/SearchBtn";
-import { SearchCategory } from "../components/SearchCategory";
+/* import 'react-dropdown/style.css'; */
 
 class Landing extends Component {
-state = {
-  returnedItems: [],
-  searchTerm: " ",
-  pg: "Landing",
-  category: "General",
-  categories: ['General', 'Books', 'Electronics', 'Jewerly', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances']
-};
-handleInputChange = event => {
-  const { name, value } = event.target;
-  this.setState({
-    [name]: value
-  });
-};
 
-handleFormSubmit = event => {
-  event.preventDefault();
+  state = {
+    returnedItems: [],
+    searchTerm: "",
+    pg: "Landing",
+    selectedCategory: "General",
+    categories: ['General', 'Books', 'Electronics', 'Jewerly', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances']
+  };
 
-  API.getSearchedItems(this.state.category, this.state.searchTerm).then(res => {
-    console.log(res);
-    this.setState({ returnedBooks: res.data.items })
-  })
-};
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
 
-componentDidMount() {
-  this.loadItems();
-}
+  handleFormSubmit = event => {
+    event.preventDefault();
+    console.log(this.state.selectedCategory);
+    console.log(this.state.searchTerm);
 
-loadItems = () => {
-  API.getRecentItems()
-    .then(
-      res => { 
-        this.setState({ returnedItems: res.data, isLoaded: true }) 
-        console.log(res.data)
-      },
-      error => {
-        this.setState({ isLoaded: true, error });
-      }
-    )
-  //.catch(err => console.log(err));
-};
+    API.getSearchedItems(this.state.selectedCategory, this.state.searchTerm)
+    .then(res => {
+      console.log(res.data);
+      this.setState({ returnedItems: res.data,  selectedCategory: "General",  searchTerm: "" });     
+    })
+  };
 
-render(){
-  return (
-    <div>
-    
+  componentDidMount() {
+    this.loadItems();
+  }
 
-     <form className="search">
-          <SearchCategory></SearchCategory>
+  loadItems = () => {
+    API.getRecentItems()
+      .then(
+        res => {
+          this.setState({ returnedItems: res.data, isLoaded: true })
+          // console.log(res.data)
+        },
+        error => {
+          this.setState({ isLoaded: true, error });
+        }
+      )
+    //.catch(err => console.log(err));
+  };
 
-           <SearchBar
-             value={this.state.searchTerm}
-             onChange={this.handleInputChange}
-             name="searchTerm"
-             placeholder="Search for item"
-           />
-           <SearchBtn
-             disabled={!(this.state.searchTerm)}
-             onClick={this.handleFormSubmit}
-           /> 
-            
-             
-         </form>
-     {/*  <SearchBar></SearchBar> */}
-     
-    
+
+
+  render() {
+    return (
+
       <div className="container">
-      
-        <CardRow 
-        items={this.state.returnedItems}/>
+        <div>
+          <form className="search">
+            <div className="row">
+              <div className="col s12 m5 l5" style={{ 'margin-top': '15px' }}>
+                <select value={this.state.selectedCategory} id="dropdown"
+                  onChange={(e) => this.setState({ selectedCategory: e.target.value })}>
+                  {this.state.categories.map((category) => <option key={category} value={category}>{category}</option>)}
+                </select>
+              </div>
+              <div className="input-field col s12 m5 l5">
+                <i class="material-icons prefix">search</i>
+                <input id="search" type="search" name="searchTerm" value={this.state.searchTerm} onChange={this.handleInputChange} required />
+                <label for="search">Seach for items</label>
+              </div>
+              <div className="col s12 m2 l2" style={{ 'margin-top': '10px' }}>
+                <SearchBtn
+                  onClick={this.handleFormSubmit}
+                />
+              </div>
+            </div>
+          </form>
+        </div>
 
-     {/*  <Postform></Postform>  */}
+        {/*  <SearchBar></SearchBar> */}
+
+
+        <div>
+          <CardRow
+            items={this.state.returnedItems} />
+          {/*  <Postform></Postform>  */}
+        </div>
       </div>
-    </div>
     )
   }
-  
+
 }
 
 export default Landing;

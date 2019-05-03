@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import landing from "./pages/landing"
 import profile from "./pages/profile"
 import usersearch from "./pages/usersearch"
@@ -6,15 +6,41 @@ import search from "./pages/search"
 import noMatch from "./pages/noMatch"
 import postitem from "./pages/postitem"
 import Nav from "./components/Nav";
+import Signup from "./components/SignUp";
+import API from "./utils/API";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-function App() {
-  return (
+class App extends Component {
+
+  state = {
+    isLoggedIn: false,
+    username: ""
+  }
+
+  componentDidMount() {
+    API.user()
+      .then(user => {
+        console.log("User: ", user);
+        this.setState({
+          isLoggedIn: user.data.loggedIn,
+          username: user.data.username
+        });
+      });
+  }
+
+  logout = () => {
+    API.logout().then(res => {
+    })
+  }
+
+  render (){
+    return(
     <Router>
       <div>
         <Nav />
         <Switch>
-          <Route exact path="/" component={landing} />
+        <Route exact path="/signup" component={Signup} />
+          <Route exact path="/" component={landing} />          
           <Route exact path="/trading-post/profile" component={profile} />
           <Route exact path="/trading-post/search" component={search} />
           <Route exact path="/trading-post/usersearch" component={usersearch} />
@@ -23,7 +49,9 @@ function App() {
         </Switch>
       </div>
     </Router>
-  );
+    )
+  }
+  
 }
 
 export default App;

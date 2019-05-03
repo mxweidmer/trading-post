@@ -1,6 +1,18 @@
 import axios from "axios";
 
 export default {
+    
+    user: function() {
+        return axios.get("https://trading-post-server.herokuapp.com/api/auth/user")
+    },    
+
+    login: function(loginData) {
+        return axios.post("https://trading-post-server.herokuapp.com/api/auth/login",loginData)
+    },    
+
+    signup: function(signupData) {
+        return axios.post("https://trading-post-server.herokuapp.com/api/auth/signup",signupData)
+    },    
     //get most recently added items on the landing page
     getRecentItems: function() {
         return axios.get("https://trading-post-server.herokuapp.com/api/items/dateDown")

@@ -17,6 +17,16 @@ class App extends Component {
     username: ""
   }
 
+  componentDidMount() {
+    API.user()
+      .then(user => {
+        console.log("User: ", user);
+        this.setState({
+          isLoggedIn: user.data.loggedIn,
+          username: user.data.username
+        });
+      });
+  }
 
   logout = () => {
     API.logout().then(res => {

@@ -7,8 +7,10 @@ import noMatch from "./pages/noMatch"
 import postitem from "./pages/postitem"
 import item from "./pages/item"
 import Nav from "./components/Nav";
+import SignedInNavBar from './components/SignedInNav'
 import signin from "./pages/signin";
 import signup from "./pages/signup";
+
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -16,7 +18,9 @@ function App() {
   return (
     <Router>
       <div>
+        {/* {this.props.location.pathname === "/" ? <Nav /> : <SignedInNav />} */}
         <Nav />
+        <SignedInNavBar />
         <Switch>
           <Route exact path="/" component={landing} />
           <Route exact path="/trading-post/profile" component={profile} />

@@ -38,8 +38,9 @@ class PostItem extends Component {
     console.log(this.state.selectedCategory);
 
     API.createNewItem({
+      _owner: "5cc8da15ce98f8f39fccd613",
       title: this.state.title,
-      picture: fileUpload,
+      picture: "https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       description: this.state.description,
       category: this.state.selectedCategory,
       condition: this.state.condition

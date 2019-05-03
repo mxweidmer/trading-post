@@ -43,7 +43,7 @@ function Card(props) {
                     </div>
                 </div>
             </div>
-            <div style={modalStyle}  className="modal animated flipInY" id={props.id}>
+            <div id={props.id} style={modalStyle}  className="modal animated flipInY" >
                 <div className="modal-content">
                     <h4 className="center-align">{props.title}</h4>
                     <img className="responsive-img center-align" style={modalImageStyle} src={props.image} alt={props.title} />

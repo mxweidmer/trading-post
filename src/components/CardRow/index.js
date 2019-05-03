@@ -1,11 +1,6 @@
 import React from 'react'
 import Card from "../Cards/index"
 
-function CardRow(props) {
-   console.log(props)
-   return (
-       <div>
-
 
 function CardRow(props) {
     console.log("PROPS: ", props)

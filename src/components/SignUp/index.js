@@ -23,14 +23,7 @@ class SignUp extends Component {
       if (this.state.username && this.state.password && this.state.passwordConfirm && this.state.email) {
          if (this.state.password === this.state.passwordConfirm) {
 
-/*
-            user = () => {
-               API.user().then(res => console.log(res));
-             }
-             login = loginData => {
-               API.login(loginData).then(res => console.log(res));
-             }
-*/             
+       
              const signupData={
                 username : this.state.username,
                 email : this.state.email,
@@ -41,6 +34,7 @@ class SignUp extends Component {
             this.setState({
                username: "",
                password: "",
+               email:"",
                passwordConfirm: ""
             });
          } else {

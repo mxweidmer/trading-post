@@ -30,8 +30,19 @@ class Profile extends Component {
         API.getUserInfo(id)
             .then(
                 res => {
-                    this.setState({ returnedItems: res.data, isLoaded: true })
                     console.log(res.data)
+                    this.setState({ 
+                                    isLoaded: true,
+                                    error: null,
+                                    firstName: res.data.firstName,
+                                    lastName: res.data.lasName,
+                                    city: res.data.city,
+                                    state: res.data.state,
+                                    phone: res.data.phone,
+                                    items: res.data.items,
+                                    wishlist: res.data.wishlist,
+                                    searchterm: res.data.searchTerm })
+                    
                 },
                 error => {
                     this.setState({ isLoaded: true, error });
@@ -62,9 +73,9 @@ class Profile extends Component {
                     <List
                         listTitle="Wishlist"
                         items={
-                            [
-                                this.state.wishlist
-                            ]}
+                            this.state.wishlist
+                        }
+
                     />
                 </Row>
             </div>

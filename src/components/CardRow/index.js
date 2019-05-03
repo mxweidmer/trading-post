@@ -37,13 +37,13 @@ const items = [{
     _owner: "5ccb2dd8be1c8f0017b74632"
 }]
 
-function CardRow() {
-    console.log("PROPS: ", items)
+function CardRow(props) {
+    console.log("PROPS: ", props)
     return (
         <div>
 
             <div className="row">
-                {items.map((item, index) => (
+                {props.items.map((item, index) => (
 
                     <Card
                         title={item.title}

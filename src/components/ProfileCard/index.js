@@ -28,7 +28,7 @@ export function List(props) {
 
                         {props.items.map(items => (
                             <tr key={items.id}>
-                                <td><a href={items.link}>{items.name}</a></td>
+                                <td><a href="#">{items.title}</a></td>
                             </tr>
                         ))
                         }

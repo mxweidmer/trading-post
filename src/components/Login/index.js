@@ -1,3 +1,4 @@
+/*
 import React, { Component } from "react";
 import API from "../../utils/API";
 
@@ -15,12 +16,18 @@ handleInputChange = event =>{
     });
 };
 
+handleFormSubmit = event => {
+    event.preventDefault();
+    if (this.state.username && this)
+
+}
+
 
 
 
 
    };
-/*
+
    render() {
 
       return (
@@ -29,6 +36,8 @@ handleInputChange = event =>{
    }
    
 }
-*/
+
 
 export default SignIn;
+
+*/

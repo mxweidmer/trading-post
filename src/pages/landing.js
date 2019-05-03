@@ -30,9 +30,10 @@ class Landing extends Component {
     console.log(this.state.selectedCategory);
     console.log(this.state.searchTerm);
 
-    API.getSearchedItems(this.state.selectedCategory, this.state.searchTerm).then(res => {
+    API.getSearchedItems(this.state.selectedCategory, this.state.searchTerm)
+    .then(res => {
       console.log(res.data);
-      this.setState({ returnedItems: res.data })
+      this.setState({ returnedItems: res.data,  selectedCategory: "General",  searchTerm: "" });     
     })
   };
 
@@ -63,7 +64,7 @@ class Landing extends Component {
           <form className="search">
             <div className="row">
               <div className="col s12 m5 l5" style={{ 'margin-top': '15px' }}>
-                <select value={this.state.selectedCategory}
+                <select value={this.state.selectedCategory} id="dropdown"
                   onChange={(e) => this.setState({ selectedCategory: e.target.value })}>
                   {this.state.categories.map((category) => <option key={category} value={category}>{category}</option>)}
                 </select>

@@ -8,7 +8,7 @@ export function SearchBar(props){
 return(
     <Container>
     <Row>
-    <form>
+    {/* <form> */}
       
    {/*  <div className = "categorydrop col s12 m2">
     <select className="browser-default">
@@ -37,7 +37,7 @@ return(
 
  
     
-  </form>
+ {/*  </form> */}
   
   </Row>
   </Container>

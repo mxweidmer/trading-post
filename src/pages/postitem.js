@@ -12,7 +12,7 @@ class PostItem extends Component {
 
   state = {
     title: "",
-    picture: null,
+    picture: "",
     description: "",
     selectedCategory: "General",
     condition: "",
@@ -31,22 +31,23 @@ class PostItem extends Component {
     });
   };
 
+  //form submit event handler
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log("submit");
-    const fileUpload = new FormData();
-    fileUpload.append("image", this.state.picture);
+    /* const fileUpload = new FormData();
+    fileUpload.append("image", this.state.picture); */
     console.log(this.state.selectedCategory);
 
     API.createNewItem({
-      _owner: "5cc8da15ce98f8f39fccd613",
+      _owner: "5cca717879f2d60017aed66e",
       title: this.state.title,
-      picture: "https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      picture: this.state.picture.length == 0 ? "https://www.pluggedin.com/images/content-image/placeholder_book.jpg" : this.state.picture,
       description: this.state.description,
       category: this.state.selectedCategory,
       condition: this.state.condition
     }).then(res => {
-      console.log(res.data);
+      console.log("The item was posted " + res.data);
+      //add later redirect to the profile page if the item was added sucessfully
       //this.setState({ returnedItems: res.data, searchTerm: "" });     
     })
   }
@@ -60,7 +61,7 @@ class PostItem extends Component {
       <Container>
         <form>
           <div className="formCont">
-            <h3>Post your Item </h3>
+            <h3>Post your Item</h3>
             <div className="row">
               <div className="input-field col s6">
 
@@ -78,8 +79,6 @@ class PostItem extends Component {
                     {this.state.categories.map((category) => <option key={category} value={category}>{category}</option>)}
                   </select>
                 </div>
-
-
               </div>
             </div>
             <div className="row">
@@ -97,7 +96,7 @@ class PostItem extends Component {
               </div>
               <div className="row">
                 <div className="input-field col s12">
-                  <input id="picture" type="text" required />
+                  <input id="picture" type="text" name="picture" onChange={this.handleInputChange} value={this.state.picture} required />
                   <label for="picture">Add a Picture</label>
                 </div>
               </div>
@@ -107,12 +106,8 @@ class PostItem extends Component {
         </form>
       </Container>
 
-
-      /*  <Postform> </Postform>  <PostFormBtn></PostFormBtn> */
-
     )
   }
-
 }
 
 export default PostItem;

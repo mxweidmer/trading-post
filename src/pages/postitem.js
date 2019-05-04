@@ -7,6 +7,7 @@ import PostFormBtn from '../components/PostFormBtn';
 import { Container, Row } from '../components/Grid';
 import API from "../utils/API";
 
+
 class PostItem extends Component {
 
   state = {
@@ -23,7 +24,7 @@ class PostItem extends Component {
   }
 
   handleInputChange = event => {
-  
+
     const { name, value } = event.target;
     this.setState({
       [name]: value
@@ -50,6 +51,8 @@ class PostItem extends Component {
     })
   }
 
+  
+
 
   render() {
     return (
@@ -57,7 +60,7 @@ class PostItem extends Component {
       <Container>
         <form>
           <div className="formCont">
-            <h2> Post your Item </h2>
+            <h3>Post your Item </h3>
             <div className="row">
               <div className="input-field col s6">
 
@@ -67,11 +70,16 @@ class PostItem extends Component {
                   name="title" required />
                 <label for="title">Add a Title</label>
               </div>
-              <div className="input-field col s6">
 
-                {/*  <input id="picture" type="text" required /> */}
-                <input type="file" onChange={this.fileChangedHandler}></input>
-                <label for="picture">Add a Picture</label>
+              <div className="input-field col s6">
+                <div>
+                  <select className="select-dropdown" value={this.state.selectedCategory} id="dropdown"
+                    onChange={(e) => this.setState({ selectedCategory: e.target.value })}>
+                    {this.state.categories.map((category) => <option key={category} value={category}>{category}</option>)}
+                  </select>
+                </div>
+
+
               </div>
             </div>
             <div className="row">
@@ -88,11 +96,9 @@ class PostItem extends Component {
                 </div>
               </div>
               <div className="row">
-                <div>
-                  <select value={this.state.selectedCategory} id="dropdown"
-                    onChange={(e) => this.setState({ selectedCategory: e.target.value })}>
-                    {this.state.categories.map((category) => <option key={category} value={category}>{category}</option>)}
-                  </select>
+                <div className="input-field col s12">
+                  <input id="picture" type="text" required />
+                  <label for="picture">Add a Picture</label>
                 </div>
               </div>
               <button className="btn" onClick={this.handleFormSubmit}>Add Item</button>

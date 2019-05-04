@@ -6,7 +6,7 @@ import { SearchBar } from '../components/Search'
 import { Row, Container } from '../components/Grid';
 import API from "../utils/API";
 import { SearchBtn } from "../components/SearchBtn";
-/* import 'react-dropdown/style.css'; */
+
 
 class Landing extends Component {
 
@@ -83,10 +83,6 @@ class Landing extends Component {
             </div>
           </form>
         </div>
-
-        {/*  <SearchBar></SearchBar> */}
-
-
         <div>
           <CardRow
             items={this.state.returnedItems} />

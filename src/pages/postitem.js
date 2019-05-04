@@ -6,6 +6,8 @@ import PostFormBtn from '../components/PostFormBtn';
 
 import { Container, Row } from '../components/Grid';
 import API from "../utils/API";
+import { Redirect } from 'react-router-dom';
+
 
 
 class PostItem extends Component {
@@ -16,6 +18,7 @@ class PostItem extends Component {
     description: "",
     selectedCategory: "General",
     condition: "",
+    //redirect: false,
     categories: ['General', 'Books', 'Electronics', 'Jewelry', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances']
   };
 
@@ -30,6 +33,15 @@ class PostItem extends Component {
       [name]: value
     });
   };
+
+
+   /* renderRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+      return <Redirect to='/trading-post/profile'/>
+    } */
+   
 
   //form submit event handler
   handleFormSubmit = (event) => {
@@ -47,14 +59,13 @@ class PostItem extends Component {
       condition: this.state.condition
     }).then(res => {
       console.log("The item was posted " + res.data);
+      //this.renderRedirect(); 
       //add later redirect to the profile page if the item was added sucessfully
       //this.setState({ returnedItems: res.data, searchTerm: "" });     
     })
   }
 
-  
-
-
+ 
   render() {
     return (
 

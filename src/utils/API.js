@@ -6,8 +6,10 @@ export default {
         return axios.get("https://trading-post-server.herokuapp.com/api/items/dateDown")
     },       
     //post request for the create a new item
-    createNewItem: function () {
-        return axios.post("https://trading-post-server.herokuapp.com/api/items/:userid")
+    createNewItem: function (postData) {
+        //return axios.post("https://trading-post-server.herokuapp.com/api/items/:userid", postData)
+        console.log(postData);
+        return axios.post("https://trading-post-server.herokuapp.com/api/items/5cca717879f2d60017aed66e", postData)
         /* example
         {	
         "_owner": "5cc8da15ce98f8f39fccd613",

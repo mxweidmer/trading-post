@@ -4,10 +4,14 @@ import { ProfileTop, List } from '../components/ProfileCard';
 import { Row } from '../components/Grid';
 import API from "../utils/API";
 
+
+
 class Profile extends Component {
 
+
+
     state = {
-        _id: "5cca717879f2d60017aed66e",
+        _id: "",
         isLoaded: false,
         error: null,
         firstName: "Spongebob",
@@ -15,15 +19,19 @@ class Profile extends Component {
         city: "",
         state: "",
         phone: "",
-        items: [{name:"toy boat", id: "1", link: "#"}],
-        wishlist: [{name:"boat toy", id:"2", link: "#"}],
+        items: [{ name: "toy boat", id: "1", link: "#" }],
+        wishlist: [{ name: "boat toy", id: "2", link: "#" }],
         searchTerm: "",
         pg: "Profile",
         categories: ['General', 'Books', 'Electronics', 'Jewerly', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances']
     };
 
+
     componentDidMount() {
-        this.loadUser(this.state._id);
+        const { id } = this.props.match.params
+        console.log("id " + id);
+        this.loadUser(id, (id) => { this.setState._id = id });
+        
     }
 
     loadUser = (id) => {
@@ -31,18 +39,19 @@ class Profile extends Component {
             .then(
                 res => {
                     console.log(res.data)
-                    this.setState({ 
-                                    isLoaded: true,
-                                    error: null,
-                                    firstName: res.data.firstName,
-                                    lastName: res.data.lasName,
-                                    city: res.data.city,
-                                    state: res.data.state,
-                                    phone: res.data.phone,
-                                    items: res.data.items,
-                                    wishlist: res.data.wishlist,
-                                    searchterm: res.data.searchTerm })
-                    
+                    this.setState({
+                        isLoaded: true,
+                        error: null,
+                        firstName: res.data.firstName,
+                        lastName: res.data.lasName,
+                        city: res.data.city,
+                        state: res.data.state,
+                        phone: res.data.phone,
+                        items: res.data.items,
+                        wishlist: res.data.wishlist,
+                        searchterm: res.data.searchTerm
+                    })
+
                 },
                 error => {
                     this.setState({ isLoaded: true, error });
@@ -56,10 +65,10 @@ class Profile extends Component {
         return (
             <div>
                 <br />
-                
+
                 <ProfileTop
                     image="https://i.imgur.com/H37kxPH.jpg"
-                    username= {this.state.firstName}
+                    username={this.state.firstName}
                     description="Average doggo, normal doggo things in progress." />
 
                 <Row>

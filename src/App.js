@@ -12,7 +12,10 @@ import signin from "./pages/signin";
 import signup from "./pages/signup";
 
 
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+
 
 function App() {
   return (
@@ -21,7 +24,8 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path="/" component={landing} />
-          <Route exact path="/trading-post/profile" component={profile} />
+          {/* <Route exact path="/trading-post/profile" component={profile} /> */}
+          <Route path="/trading-post/profile/:id" component={profile} />
           <Route exact path="/trading-post/search" component={search} />
           <Route exact path="/trading-post/usersearch" component={usersearch} />
           <Route exact path="/trading-post/postitem" component={postitem} />
@@ -29,7 +33,6 @@ function App() {
           <Route exact path="/trading-post/item" component={item} />
           <Route exact path="/trading-post/signin" component={signin} />
           <Route exact path="/trading-post/signup" component={signup} />
-
           <Route component={noMatch} />        
         </Switch>
       </div>

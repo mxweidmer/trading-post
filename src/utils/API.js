@@ -42,8 +42,8 @@ export default {
     },
 
     getUserInfo: function (userid) {
-        //return axios.get("http://localhost:8080/api/users/" + userid)
-        return axios.get("http://localhost:8080/api/users/5cce6221898ff95900d1cbd8");
+        return axios.get("https://trading-post-server.herokuapp.com/api/users/" + userid)
+        //return axios.get("https://trading-post-server.herokuapp.com/api/users/cca717879f2d60017aed66e");
     },
     //get request to receive items based on the category and the search term
     getSearchedItems: function (category, searchTerm) {
@@ -73,10 +73,10 @@ export default {
 	    "category": "Books"
         }
         */
-
+    
     //put request for updating an existing item
     updateExistingItem: function (postData) {
-        //return axios.put("http://localhost:8080/api/items/single/:itemId", postData)
+        //return axios.put("https://trading-post-server.herokuapp.com/api/items/single/:itemId", postData)
         console.log(postData);
         return axios.put("http://localhost:8080/api/items/single/5cca086a4c0a7d0017d2382e", postData)
         /* example

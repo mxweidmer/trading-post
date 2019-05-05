@@ -55,14 +55,11 @@ class App extends Component {
           <Route exact path="/trading-post/" component={landing} />
           <Route exact path="/trading-post/signin" component={signin} />
           <Route exact path="/trading-post/signup" component={signup} />
-          <Route exact path="/trading-post/profile" component={profile} />
-          {/* <Route exact path="/trading-post/search" component={search} /> */}
-          {/* <Route exact path="/trading-post/usersearch" component={usersearch} /> */}
           <Route exact path="/trading-post/postitem" component={postitem} />
           <Route exact path="/trading-post/updateitem" component={updateitem} />
           <Route exact path="/trading-post/item" component={item} />
-
-          <Route component={noMatch} />      
+          <Route path="/trading-post/profile/:id" component={profile} />
+          <Route component={noMatch} />        
         </Switch>
       </div>
     </Router>

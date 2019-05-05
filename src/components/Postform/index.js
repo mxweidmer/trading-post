@@ -1,6 +1,5 @@
 import React from "react";
-import { Container, Row } from "../Grid";
-import style from './style.css';
+import { Container } from "../Grid";
 
 export default class PostForm extends React.Component {
     state = {

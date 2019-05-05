@@ -1,43 +1,64 @@
-import React from "react";
+import React, { Component } from "react";
 import landing from "./pages/landing"
 import profile from "./pages/profile"
-import usersearch from "./pages/usersearch"
-import search from "./pages/search"
 import noMatch from "./pages/noMatch"
 import postitem from "./pages/postitem"
 import updateitem from "./pages/updateitem"
 import item from "./pages/item"
 import Nav from "./components/Nav";
-import SignedInNavBar from './components/SignedInNav'
 import signin from "./pages/signin";
 import signup from "./pages/signup";
 
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-function App() {
-  return (
-    <Router>
-      <div>
-        {/* {this.props.location.pathname === "/" ? <Nav /> : <SignedInNav />} */}
-        <Nav />
-        <SignedInNavBar />
-        <Switch>
-          <Route exact path="/" component={landing} />
-          <Route exact path="/trading-post/profile" component={profile} />
-          <Route exact path="/trading-post/search" component={search} />
-          <Route exact path="/trading-post/usersearch" component={usersearch} />
-          <Route exact path="/trading-post/postitem" component={postitem} />
-          <Route exact path="/trading-post/updateitem" component={updateitem} />
-          <Route exact path="/trading-post/item" component={item} />
-          <Route exact path="/trading-post/signin" component={signin} />
-          <Route exact path="/trading-post/signup" component={signup} />
+class App extends Component {
 
-          <Route component={noMatch} />        
-        </Switch>
-      </div>
-    </Router>
-  );
+  state = {
+    isLoggedIn: false,
+    UserId: ""
+  }
+
+  UNSAFE_componentWillMount() {
+    const UserId = sessionStorage.getItem("UserId")
+    console.log('app', UserId)
+    this.setState({
+      isLoggedIn: UserId ? true : false,
+      UserId: UserId
+    });
+    console.log(this.state, 'app state')
+  }
+
+  logout = () => {
+    localStorage.removeItem("UserId");
+    this.setState({
+      isLoggedIn: false,
+      UserId: ""
+    });
+  }
+
+  render() {
+
+    return (
+      <Router>
+        <div>
+          <Nav isLoggedIn={this.state.isLoggedIn} />
+          <Switch>
+            <Route exact path="/trading-post/" component={landing} />
+            <Route exact path="/trading-post/signin" component={signin} />
+            <Route exact path="/trading-post/signup" component={signup} />
+            <Route exact path="/trading-post/postitem/:id" component={postitem} />
+            <Route exact path="/trading-post/updateitem/:id" component={updateitem} />
+            <Route path="/trading-post/item/:id" component={item} />
+            <Route path="/trading-post/profile/:id" component={profile} />
+            <Route component={noMatch} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
+
 export default App;
+

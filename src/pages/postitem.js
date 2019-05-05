@@ -1,12 +1,7 @@
 import React, { Component } from "react";
-import { SearchBtn } from "../components/SearchBtn";
-import Postform from '../components/Postform'
-import PostFormBtn from '../components/PostFormBtn';
-//import { Container} from "../Grid";
 
-import { Container, Row } from '../components/Grid';
+import { Container } from '../components/Grid';
 import API from "../utils/API";
-import { Redirect } from 'react-router-dom';
 
 
 
@@ -18,7 +13,6 @@ class PostItem extends Component {
     description: "",
     selectedCategory: "General",
     condition: "",
-    //redirect: false,
     categories: ['General', 'Books', 'Electronics', 'Jewelry', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances']
   };
 
@@ -35,13 +29,13 @@ class PostItem extends Component {
   };
 
 
-   /* renderRedirect = () => {
-    this.setState({
-      redirect: true
-    })
-      return <Redirect to='/trading-post/profile'/>
-    } */
-   
+  /* renderRedirect = () => {
+   this.setState({
+     redirect: true
+   })
+     return <Redirect to='/trading-post/profile'/>
+   } */
+
 
   //form submit event handler
   handleFormSubmit = (event) => {
@@ -50,22 +44,24 @@ class PostItem extends Component {
     fileUpload.append("image", this.state.picture); */
     console.log(this.state.selectedCategory);
 
-    API.createNewItem({
-      _owner: "5cca717879f2d60017aed66e",
-      title: this.state.title,
-      picture: this.state.picture.length == 0 ? "https://www.pluggedin.com/images/content-image/placeholder_book.jpg" : this.state.picture,
-      description: this.state.description,
-      category: this.state.selectedCategory,
-      condition: this.state.condition
-    }).then(res => {
-      console.log("The item was posted " + res.data);
-      //this.renderRedirect(); 
-      //add later redirect to the profile page if the item was added sucessfully
-      //this.setState({ returnedItems: res.data, searchTerm: "" });     
-    })
+    API.createNewItem(
+      sessionStorage.getItem("UserId"),
+      {
+        _owner: sessionStorage.getItem("UserId"),
+        title: this.state.title,
+        picture: this.state.picture.length === 0 ? "https://www.pluggedin.com/images/content-image/placeholder_book.jpg" : this.state.picture,
+        description: this.state.description,
+        category: this.state.selectedCategory,
+        condition: this.state.condition
+      }).then(res => {
+        console.log("The item was posted " + res.data);
+        //this.renderRedirect(); 
+        //add later redirect to the profile page if the item was added sucessfully
+        //this.setState({ returnedItems: res.data, searchTerm: "" });     
+      })
   }
 
- 
+
   render() {
     return (
 

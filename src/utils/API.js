@@ -1,7 +1,21 @@
 import axios from "axios";
 
 export default {
+    user: function() {
+        return axios.get("https://fierce-reaches-70530.herokuapp.com/api/auth/user",{ crossdomain: true, withCredentials:true })
+    },   
+
+    signup: function(signupData) {
+        return axios.post("https://fierce-reaches-70530.herokuapp.com/api/auth/signup",signupData)
+    },
+
+    signin: function(signinData) {
+        return axios.post("https://fierce-reaches-70530.herokuapp.com/api/auth/login",signinData)
+    },   
+
     //get most recently added items on the landing page
+
+    // http://fathomless-sands-76947.herokuapp.com/
     getRecentItems: function () {
         return axios.get("https://trading-post-server.herokuapp.com/api/items/dateDown")
     },       
@@ -21,7 +35,12 @@ export default {
         }
         */
     },
+    //getUserInfo: function (userid) {
     //get request to receive a user's ifo with his/her items and the wishlist
+    users: function() {
+        return axios.get("https://trading-post-server.herokuapp.com/api/auth/users")
+    },    
+
     getUserInfo: function (userid) {
         //return axios.get("https://trading-post-server.herokuapp.com/api/users/" + userid)
         return axios.get("https://trading-post-server.herokuapp.com/api/users/cca717879f2d60017aed66e");
@@ -35,8 +54,9 @@ export default {
         return axios.get("https://trading-post-server.herokuapp.com/api/categories/" + category + "/" + searchTerm)
     },
     //create a new user (post method for signing up)
-    addNewUser: function() {
-        return axios.post("https://trading-post-server.herokuapp.com/api/users")
+    /*
+    signup: function(signupData) {
+        return axios.post("https://trading-post-server.herokuapp.com/api/auth/users",signupData)
     },
     //get request for update an item form
     updateItem: function () {
@@ -53,7 +73,7 @@ export default {
 	    "category": "Books"
         }
         */
-    },
+    
       //put request for updating an existing item
       updateExistingItem: function (postData) {
         //return axios.put("https://trading-post-server.herokuapp.com/api/items/single/:itemId", postData)

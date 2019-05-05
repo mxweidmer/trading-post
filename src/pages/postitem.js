@@ -13,6 +13,7 @@ import { Redirect } from 'react-router-dom';
 class PostItem extends Component {
 
   state = {
+    _owner: "",
     title: "",
     picture: "",
     description: "",
@@ -27,12 +28,25 @@ class PostItem extends Component {
   }
 
   handleInputChange = event => {
-
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
+
+  //use this method to read userid for now, later can try to read it from the session !
+  componentDidMount() {
+    const { id } = this.props.match.params
+    console.log("id " + id);  
+    this.setState({_owner: id});
+  } 
+
+  //get user id from props
+  getUserId() {
+    const { id } = this.props.match.params
+    console.log("id " + id); 
+    this.setState({_owner: id});
+  }
 
 
    /* renderRedirect = () => {
@@ -51,7 +65,7 @@ class PostItem extends Component {
     console.log(this.state.selectedCategory);
 
     API.createNewItem({
-      _owner: "5cca717879f2d60017aed66e",
+      _owner: this.state._owner,
       title: this.state.title,
       picture: this.state.picture.length == 0 ? "https://www.pluggedin.com/images/content-image/placeholder_book.jpg" : this.state.picture,
       description: this.state.description,

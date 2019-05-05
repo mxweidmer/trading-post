@@ -1,26 +1,24 @@
-//import React from 'react'
+
 import React, { Component } from "react";
 import { ProfileTop, List } from '../components/ProfileCard';
 import { Row } from '../components/Grid';
 import API from "../utils/API";
 
 
-
 class Profile extends Component {
-
 
 
     state = {
         _id: "",
         isLoaded: false,
         error: null,
-        firstName: "Spongebob",
+        firstName: "",
         lastName: "",
         city: "",
         state: "",
         phone: "",
-        items: [{ name: "toy boat", id: "1", link: "#" }],
-        wishlist: [{ name: "boat toy", id: "2", link: "#" }],
+        items: [],
+        wishlist: [],
         searchTerm: "",
         pg: "Profile",
         categories: ['General', 'Books', 'Electronics', 'Jewerly', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances']
@@ -30,8 +28,10 @@ class Profile extends Component {
     componentDidMount() {
         const { id } = this.props.match.params
         console.log("id " + id);
-        this.loadUser(id, (id) => { this.setState._id = id });
-        
+        this.loadUser(id);
+        /*  ((id) => {
+             this.setState(_id = id)
+           })     */
     }
 
     loadUser = (id) => {
@@ -40,6 +40,7 @@ class Profile extends Component {
                 res => {
                     console.log(res.data)
                     this.setState({
+                        _id: id,
                         isLoaded: true,
                         error: null,
                         firstName: res.data.firstName,

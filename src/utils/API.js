@@ -28,8 +28,6 @@ export default {
     },
     //get request to receive items based on the category and the search term
     getSearchedItems: function (category, searchTerm) {
-        /*  category = "Electronics";
-         searchTerm = "Apple"; */
         console.log("category: " + category);
         console.log("searchTerm: " + searchTerm);
         return axios.get("https://trading-post-server.herokuapp.com/api/categories/" + category + "/" + searchTerm)

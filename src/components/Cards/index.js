@@ -1,45 +1,64 @@
 import React from 'react'
 
 const buttonStyle = {
-    padding: "0px 2px 2px 2px"
+    alignContent: "right",
+    padding: "0px 2px 2px 2px",
+    width: "90px",
+    display: "inline-block",
+    marginBottom: "10px"
 }
 
-const cardStyle = {
-    height: "200px",
-    width: "auto"
-}
-
-const modalStyle = {
-    height: "auto",
-    width: "500px"
-}
-
-const modalImageStyle = {
-    height: "350px",
-    width: "50%",
-    display: "block",
-    margin: "auto"
-}
 
 const cardImageStyle = {
     height: "200px",
-    width: "90%",
+    width: "100%",
     display: "block",
     margin: "auto"
 }
+
+const titleDiv = {
+    fontSize: "22px",
+    position: "absolute",
+    bottom: "0",
+    left: "0",
+    width: "100%",
+    height: "50px",
+    background: "#00838f",
+    opacity: ".6",
+    padding: "0, 5%, 30px, 5%"
+
+}
+
+const titleText = {
+    padding: "10%",
+    color: "white"
+}
+
+const content = {
+    padding: "24px, 24px, 5px, 24px",
+    margin: "20px"
+}
+
+
 
 function Card(props) {
     return (
         <div>
             <div className="col s4">
-                <div  className="card z-depth-4">
+                <div className="card z-depth-4">
                     <div className="card-image" >
                         <a className="modal-trigger" href={`#${props.id}`}><img className="responsive-img" style={cardImageStyle} src={props.image} alt={props.title} /></a>
-                        <span className="card-title center-align">{props.title}</span>
+                        <div className="valign-wrapper" style={titleDiv}>
+                            <p className="truncate" style={titleText} >{props.title}</p>
+                        </div>
                     </div>
-                    <div className="card-content">
+                    <div  style={content}>
                         <p className="truncate">{props.description}</p>
-                        <a className="card-action btn text-center green modal-trigger" style={buttonStyle} href={`/trading-post/item/${props.id}`}> More Details</a>
+                        <div className="row">
+                        <div className="col s2 offset-s7">
+                        <a className="card-action btn text-center modal-trigger right-align cyan" style={buttonStyle} href={`/trading-post/item/${props.id}`}>Details</a>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>

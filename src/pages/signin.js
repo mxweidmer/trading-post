@@ -26,14 +26,16 @@ class signin extends Component {
 
             await API.signin(signinData).then(res => {
                console.log({res}, 'login res');
+
+               sessionStorage.setItem("UserId", res.data.user_id)
+
                this.setState({
                   userName: "",
                   password: ""  
                });
-               this.props.history.push("/");
+               this.props.history.push("/trading-post");
                
             });
-        
      } 
   };
 

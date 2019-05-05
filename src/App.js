@@ -24,8 +24,8 @@ class App extends Component {
     userName: ""
   }
 
-  async componentDidMount() {
-    await API.user()
+  componentDidMount() {
+    API.user()
       .then(user => {
         console.log("User: ", user);
         this.setState({
@@ -49,14 +49,15 @@ class App extends Component {
       <div>
         {/* {this.props.location.pathname === "/" ? <Nav /> : <SignedInNav />} */}
         <Nav />
-        <SignedInNavBar />
+        {/* <SignedInNavBar /> */}
         <Switch>
-          <PrivateRoute authed={this.state.isLoggedIn} exact path='/' component={landing} />
-          <Route exact path="/signin" component={signin} />
-          <Route exact path="/signup" component={signup} />
+          {/* <PrivateRoute authed={this.state.isLoggedIn} exact path='/' component={landing} /> */}
+          <Route exact path="/trading-post/" component={landing} />
+          <Route exact path="/trading-post/signin" component={signin} />
+          <Route exact path="/trading-post/signup" component={signup} />
           <Route exact path="/trading-post/profile" component={profile} />
-          <Route exact path="/trading-post/search" component={search} />
-          <Route exact path="/trading-post/usersearch" component={usersearch} />
+          {/* <Route exact path="/trading-post/search" component={search} /> */}
+          {/* <Route exact path="/trading-post/usersearch" component={usersearch} /> */}
           <Route exact path="/trading-post/postitem" component={postitem} />
           <Route exact path="/trading-post/updateitem" component={updateitem} />
           <Route exact path="/trading-post/item" component={item} />

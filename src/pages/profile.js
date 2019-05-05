@@ -8,11 +8,12 @@ import API from "../utils/API";
 class Profile extends Component {
 
     state = {
-        _id: "5cca717879f2d60017aed66e",
+        _id: "5cce6221898ff95900d1cbd8",
         isLoaded: false,
         error: null,
-        firstName: "Spongebob",
+        firstName: "",
         lastName: "",
+        userName: "",
         city: "",
         state: "",
         phone: "",
@@ -36,7 +37,8 @@ class Profile extends Component {
                                     isLoaded: true,
                                     error: null,
                                     firstName: res.data.firstName,
-                                    lastName: res.data.lasName,
+                                    lastName: res.data.lastName,
+                                    userName: res.data.userName,
                                     city: res.data.city,
                                     state: res.data.state,
                                     phone: res.data.phone,
@@ -61,7 +63,7 @@ class Profile extends Component {
                 
                 <ProfileTop
                     image="https://i.imgur.com/H37kxPH.jpg"
-                    username= {this.state.firstName}
+                    username= {this.state.userName}
                     description="Average doggo, normal doggo things in progress." />
 
                 <Row>

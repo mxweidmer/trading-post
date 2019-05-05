@@ -42,7 +42,7 @@ class signup extends Component {
 
             }             
               API.signup(signupData).then(res => {
-                  this.props.history.push("/");
+                  this.props.history.push("/trading-post/profile");
                   console.log(res)
                });     
            

@@ -53,9 +53,6 @@ class UpdateItem extends Component {
         //.catch(err => console.log(err));
     };
 
-    /*  fileChangedHandler = event => {
-         this.setState({ picture: event.target.files[0] })
-     } */
 
     handleInputChange = event => {
 
@@ -68,19 +65,17 @@ class UpdateItem extends Component {
     //form submit event handler
     handleFormSubmit = (event) => {
         event.preventDefault();
-        /* const fileUpload = new FormData();
-        fileUpload.append("image", this.state.picture); */
         console.log(this.state.selectedCategory);
 
-        API.createNewItem({
-            _owner: "5cca717879f2d60017aed66e",
+        API.updateExistingItem( this.state._id ,
+         {
             title: this.state.title,
             picture: this.state.picture.length == 0 ? "https://www.pluggedin.com/images/content-image/placeholder_book.jpg" : this.state.picture,
             description: this.state.description,
-            category: this.state.selectedCategory,
             condition: this.state.condition
-        }).then(res => {
-            console.log("The item was posted " + res.data);
+        })
+        .then(res => {
+            console.log("The item was updated " + res.data);
             //this.renderRedirect(); 
             //add later redirect to the profile page if the item was added sucessfully
             //this.setState({ returnedItems: res.data, searchTerm: "" });     
@@ -139,9 +134,8 @@ class UpdateItem extends Component {
                                 <input id="picture" type="text" name="picture" onChange={this.handleInputChange} value={this.state.picture} required />
                             </div>
                         </div>
-                        <button className="btn" onClick={this.handleFormSubmit}>Add Item</button>
+                        <button className="btn" onClick={this.handleFormSubmit}>Update Item</button>
                     </div>
-
                 </form>
             </Container >
 

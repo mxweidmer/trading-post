@@ -43,13 +43,17 @@ export default {
         //return axios.get("https://trading-post-server.herokuapp.com/api/items/single/5cca086a4c0a7d0017d2382e")
         return axios.get("https://trading-post-server.herokuapp.com/api/items/single/" + itemid);
         /* example
-        {	
-        "_owner": "5cc8da15ce98f8f39fccd613",
-	    "title": "Book",
-	    "picture": "test",
-	    "description": "C++ textbook",
-	    "condition": "so-so",
-	    "category": "Books"
+        {
+        title: "A ring",
+        picture: "test",
+        description: "old golden ring with ruby",
+        condition: "good",
+        category: "Jewelry",
+        _id: "5cca086a4c0a7d0017d2382e",
+        _owner: "5cca0613076d830017d9f38d",
+        createdAt: "2019-05-01T20:58:18.447Z",
+        updatedAt: "2019-05-01T20:58:18.447Z",
+        __v: 0
         }
         */
     },

@@ -5,8 +5,10 @@ import usersearch from "./pages/usersearch"
 import search from "./pages/search"
 import noMatch from "./pages/noMatch"
 import postitem from "./pages/postitem"
+import updateitem from "./pages/updateitem"
 import item from "./pages/item"
 import Nav from "./components/Nav";
+import SignedInNavBar from './components/SignedInNav'
 import signin from "./pages/signin";
 import signup from "./pages/signup";
 import API from "./utils/API";
@@ -45,7 +47,9 @@ class App extends Component {
   return (
     <Router>
       <div>
+        {/* {this.props.location.pathname === "/" ? <Nav /> : <SignedInNav />} */}
         <Nav />
+        <SignedInNavBar />
         <Switch>
           <PrivateRoute authed={this.state.isLoggedIn} exact path='/' component={landing} />
           <Route exact path="/signin" component={signin} />
@@ -54,6 +58,7 @@ class App extends Component {
           <Route exact path="/trading-post/search" component={search} />
           <Route exact path="/trading-post/usersearch" component={usersearch} />
           <Route exact path="/trading-post/postitem" component={postitem} />
+          <Route exact path="/trading-post/updateitem" component={updateitem} />
           <Route exact path="/trading-post/item" component={item} />
 
           <Route component={noMatch} />      

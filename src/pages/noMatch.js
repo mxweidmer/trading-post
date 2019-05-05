@@ -11,9 +11,7 @@ const imgStyle={
 const divStyle={
   width: "100%",
   height:"680px",
-  backgroundImage: "url(http://blog.adw.org/wp-content/uploads/2019/01/stars-984050_960_720-2.jpg)",
-  backgroundSize: "cover",
-  paddingTop: "0px"
+  backgroundColor: "Black",
 }
 
 function noMatch() {
@@ -21,7 +19,7 @@ function noMatch() {
     <div style={divStyle}>
             <h1 className="center white-text">404 Page Not Found</h1>
             
-              <img style={imgStyle} src="https://i.imgur.com/QT4rpl8.jpg" />
+              <img style={imgStyle} src="https://media1.tenor.com/images/84c4e8c1a24b84bece745d2dcd2a5aa8/tenor.gif?itemid=5551618" />
             
     </div> 
   ); 

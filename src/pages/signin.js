@@ -26,11 +26,20 @@ class signin extends Component {
 
             await API.signin(signinData).then(res => {
                console.log({res}, 'login res');
-               this.setState({
-                  userName: "",
-                  password: ""  
-               });
-               this.props.history.push("/");
+               if (res.data.userName){
+                  const value = res.data.userName;
+                  localStorage.setItem("username",value);
+
+                  console.log(localStorage.getItem("username"));
+               
+                  this.setState({
+                     userName: "",
+                     password: ""  
+                  });
+                  this.props.history.push("/");
+                 
+               }
+               
                
             });
         

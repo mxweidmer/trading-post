@@ -11,7 +11,6 @@ import Nav from "./components/Nav";
 import SignedInNavBar from './components/SignedInNav'
 import signin from "./pages/signin";
 import signup from "./pages/signup";
-import API from "./utils/API";
 import PrivateRoute from './utils/PrivateRoute'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -23,30 +22,34 @@ class App extends Component {
     userName: ""
   }
 
-  async componentDidMount() {
-    await API.user()
-      .then(user => {
-        console.log("User: ", user);
+  UNSAFE_componentWillMount() {
+       localStorage.getItem("username")
+       const username = localStorage.getItem("username")
+       console.log('app',username)
         this.setState({
-          isLoggedIn: user.data.loggedIn,
-          userName: user.data.userName
-        }); 
+          isLoggedIn: username ? true:false,
+          userName: username
       });
+      console.log(this.state, 'app state')
   }
   
-
   logout = () => {
-    API.logout().then(res => {
-    })
+    localStorage.removeItem("username");
+    this.setState({
+      isLoggedIn: false,
+      userName: ""
+  
+  });
+    
   }
 
 
   render (){
 
+    console.log(this.state, 'app state in render')
   return (
     <Router>
       <div>
-        {/* {this.props.location.pathname === "/" ? <Nav /> : <SignedInNav />} */}
         <Nav />
         <SignedInNavBar />
         <Switch>

@@ -1,6 +1,19 @@
 import React from 'react'
+import {withRouter} from 'react-router-dom';
 
-function NavBar (){
+function NavBar (props){
+
+    let showSignIn = true
+    let showSignOut = false
+    if(props.isLoggedIn){
+        showSignIn = false
+        showSignOut = true
+    }
+
+    const logout = () => {
+        localStorage.removeItem("username");
+    }
+
     return (
         <nav>
         <div className="nav-wrapper cyan darken-3">
@@ -11,8 +24,13 @@ function NavBar (){
             </ul>
 
             <ul className="right hide-on-med-and-down">
-                <li><a className="waves-effect waves-light btn">Sign in<i
-                            className="material-icons right">account_circle</i></a></li>
+                {showSignIn && (<li><a className="waves-effect waves-light btn">Sign In<i
+                className="material-icons right">account_circle</i></a></li>)}
+
+                {showSignOut && (<li><a className="waves-effect waves-light btn" onClick={logout}>Sign Out<i
+                className="material-icons right">account_circle</i></a></li>)}
+                
+
                 <li><a className="waves-effect waves-light btn">Sign up<i
                             className="material-icons right">account_circle</i></a></li>
 
@@ -22,4 +40,4 @@ function NavBar (){
     )
 }
 
-export default NavBar;
+export default withRouter(NavBar);

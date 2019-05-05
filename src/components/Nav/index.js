@@ -26,12 +26,13 @@ function NavBar(props) {
                 <ul className="right hide-on-med-and-down">
                     {/* {showSignIn && (<li><a className="waves-effect waves-light btn" href="/trading-post/signin">Sign In<i
                         className="material-icons right">account_circle</i></a></li>)} */}
-                        <li><Link to="/trading-post/signin">Sign in</Link></li>
+                        <li><Link to="/trading-post/signin">Sign In</Link></li>
                     {showSignOut && (<li><a className="waves-effect waves-light btn" onClick={logout}>Sign Out<i
                         className="material-icons right">account_circle</i></a></li>)}
 
-                    <li><a className="waves-effect waves-light btn" href="/trading-post/signup">Sign up<i
-                        className="material-icons right">account_circle</i></a></li>
+                    {/* <li><a className="waves-effect waves-light btn" href="/trading-post/signup">Sign up<i
+                        className="material-icons right">account_circle</i></a></li> */}
+                        <Link to="/trading-post/signup">Sign Up</Link>
                 </ul>
             </div>
         </nav>

@@ -1,5 +1,5 @@
 //import React from "react";
-import React, { Component } from "react";
+import React from "react";
 
 const imgStyle={
   width: "50%",
@@ -19,7 +19,7 @@ function noMatch() {
     <div style={divStyle}>
             <h1 className="center white-text">404 Page Not Found</h1>
             
-              <img style={imgStyle} src="https://media1.tenor.com/images/84c4e8c1a24b84bece745d2dcd2a5aa8/tenor.gif?itemid=5551618" />
+              <img style={imgStyle} src="https://media1.tenor.com/images/84c4e8c1a24b84bece745d2dcd2a5aa8/tenor.gif?itemid=5551618" alt="Sad Pikachu" />
             
     </div> 
   ); 

@@ -33,7 +33,8 @@ class signin extends Component {
                   userName: "",
                   password: ""  
                });
-               this.props.history.push("/trading-post");
+               
+               this.props.history.push(`/trading-post/profile/${res.data.user_id}`);
                
             });
      } 

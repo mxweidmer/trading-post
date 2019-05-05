@@ -2,8 +2,6 @@
 import React, { Component } from "react";
 
 import CardRow from '../components/CardRow'
-import { SearchBar } from '../components/Search'
-import { Row, Container } from '../components/Grid';
 import API from "../utils/API";
 import { SearchBtn } from "../components/SearchBtn";
 

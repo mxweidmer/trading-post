@@ -11,9 +11,9 @@ import Nav from "./components/Nav";
 import SignedInNavBar from './components/SignedInNav'
 import signin from "./pages/signin";
 import signup from "./pages/signup";
-import PrivateRoute from './utils/PrivateRoute'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import API from "./utils/API";
+import PrivateRoute from './utils/PrivateRoute'
 
 class App extends Component {
 

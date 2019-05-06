@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/trading-post/static/js/main.60284b0f.chunk.js",
-    "main.js.map": "/trading-post/static/js/main.60284b0f.chunk.js.map",
+    "main.js": "/trading-post/static/js/main.687d19fd.chunk.js",
+    "main.js.map": "/trading-post/static/js/main.687d19fd.chunk.js.map",
     "runtime~main.js": "/trading-post/static/js/runtime~main.578fbe24.js",
     "runtime~main.js.map": "/trading-post/static/js/runtime~main.578fbe24.js.map",
     "static/js/2.4c3ce37e.chunk.js": "/trading-post/static/js/2.4c3ce37e.chunk.js",
     "static/js/2.4c3ce37e.chunk.js.map": "/trading-post/static/js/2.4c3ce37e.chunk.js.map",
     "index.html": "/trading-post/index.html",
-    "precache-manifest.0fa93b4b61e6f649ee6c2685aa96b92c.js": "/trading-post/precache-manifest.0fa93b4b61e6f649ee6c2685aa96b92c.js",
+    "precache-manifest.5e08ca0cf1d5a78de0d8ec95722ec422.js": "/trading-post/precache-manifest.5e08ca0cf1d5a78de0d8ec95722ec422.js",
     "service-worker.js": "/trading-post/service-worker.js"
   }
 }

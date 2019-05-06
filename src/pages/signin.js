@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import {withRouter} from 'react-router-dom';
+import './style.css'
+
+const formStyle = {
+   padding: "20px",
+    margin: "auto",
+    marginTop: "30px",
+    backgroundColor: "lightblue",
+    boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+}
 
 class signin extends Component {
 
@@ -43,8 +52,9 @@ class signin extends Component {
   render() {
 
      return (
-        <div>
+        <div class="container" style={formStyle}>
            <form>
+              <h2 className="center-align">Sign In</h2>
               <input
                  value={this.state.userName}
                  onChange={this.handleInputChange}
@@ -61,7 +71,7 @@ class signin extends Component {
                  type="password"
               />                          
               
-              <button onClick={this.handleFormSubmit}>
+              <button className="waves-effect waves-light btn-small" onClick={this.handleFormSubmit}>
                  Sign In
               </button>
            </form>

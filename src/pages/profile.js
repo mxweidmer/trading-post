@@ -93,14 +93,15 @@ class Profile extends Component {
 
     //method to delete an item 
     deleteUserItem = (userId, itemId) => {
-        API.deleteItem(userId, itemId)
-            .then(res => {
-                console.log('Delete response: ' + res);
-                console.log('Delete response data: ' + res.data);
-                //redirect to the profile page after the item is deleted
-                let path = "/trading-post/profile/" + sessionStorage.getItem("UserId");
-                this.props.history.push(path);
-            })
+        API.deleteItem(userId, itemId).then(res => {
+            console.log(res)
+            this.props.history.push("/trading-post/profile/" + this.state._id);
+        })
+    }
+
+    routeChangeAddItem = () => {
+        console.log("id " + this.state._id);
+        this.props.history.push("/trading-post/postitem/" + this.state._id);
     }
 
     render() {
@@ -120,6 +121,16 @@ class Profile extends Component {
                     <div className="col s6">
                         <button className="waves-effect waves-light btn-small" style={{ fontSize: 10 }} onClick={this.routeChangeAddItem}>Add Item</button>
                        {/*  {this.renderRedirect()}
+                        <button className="waves-effect waves-light btn-small" style={{ fontSize: 10 }} onClick={this.setRedirect}>Add Item</button>  */}
+                    </div>
+                </Row>
+
+                <Row>
+                    <div className="col s6">
+                    </div>
+                    <div className="col s6">
+                        <button className="waves-effect waves-light btn-small" style={{ fontSize: 10 }} onClick={this.routeChangeAddItem}>Add Item</button>
+                        {/*  {this.renderRedirect()}
                         <button className="waves-effect waves-light btn-small" style={{ fontSize: 10 }} onClick={this.setRedirect}>Add Item</button>  */}
                     </div>
                 </Row>

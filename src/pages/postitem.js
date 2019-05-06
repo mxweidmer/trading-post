@@ -65,6 +65,10 @@ class PostItem extends Component {
         console.log("The item was posted " + res.data);
         let path = "/trading-post/profile/" + this.state._owner;
         this.props.history.push(path);
+
+
+        //this.props.history.push(`/trading-post/profile/${sessionStorage.getItem("UserId")}`);
+
         //this.renderRedirect(); 
         //add later redirect to the profile page if the item was added sucessfully
       })

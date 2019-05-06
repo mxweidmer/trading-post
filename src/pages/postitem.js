@@ -2,10 +2,16 @@ import React, { Component } from "react";
 
 import { Container } from '../components/Grid';
 import API from "../utils/API";
+import styles from '../components/Postform/style.css';
 
 
 
 class PostItem extends Component {
+
+  constructor(props) {
+    super(props);
+    this.selectCategory = React.createRef();
+  }
 
   state = {
     title: "",
@@ -16,9 +22,6 @@ class PostItem extends Component {
     categories: ['General', 'Books', 'Electronics', 'Jewelry', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances']
   };
 
-  fileChangedHandler = event => {
-    this.setState({ picture: event.target.files[0] })
-  }
 
   handleInputChange = event => {
 
@@ -27,6 +30,15 @@ class PostItem extends Component {
       [name]: value
     });
   };
+
+  //use this method to read userid for now, later can try to read it from the session !
+  componentDidMount() {
+    const { id } = this.props.match.params
+    console.log("id " + id);  
+    this.setState({_owner: id});
+    //this.selectCategory.;
+   
+  } 
 
 
   /* renderRedirect = () => {
@@ -55,9 +67,10 @@ class PostItem extends Component {
         condition: this.state.condition
       }).then(res => {
         console.log("The item was posted " + res.data);
+        let path = "/trading-post/profile/" + this.state._owner;
+        this.props.history.push(path);
         //this.renderRedirect(); 
         //add later redirect to the profile page if the item was added sucessfully
-        //this.setState({ returnedItems: res.data, searchTerm: "" });     
       })
   }
 
@@ -81,7 +94,7 @@ class PostItem extends Component {
 
               <div className="input-field col s6">
                 <div>
-                  <select className="select-dropdown" value={this.state.selectedCategory} id="dropdown"
+                  <select ref={this.selectCategory} id="dropdownCategory" className="select-dropdown"  value={this.state.selectedCategory} id="dropdown"
                     onChange={(e) => this.setState({ selectedCategory: e.target.value })}>
                     {this.state.categories.map((category) => <option key={category} value={category}>{category}</option>)}
                   </select>
@@ -107,7 +120,7 @@ class PostItem extends Component {
                   <label for="picture">Add a Picture</label>
                 </div>
               </div>
-              <button className="btn" onClick={this.handleFormSubmit}>Add Item</button>
+              <button className="waves-effect waves-light btn-small" onClick={this.handleFormSubmit}>Add Item</button>
             </div>
           </div>
         </form>

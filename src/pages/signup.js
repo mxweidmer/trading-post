@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
+import './style.css'
 
 class signup extends Component {
 
@@ -12,8 +13,9 @@ class signup extends Component {
       phone: "",
       city: "",
       state: "",
-      bio: "",
-      passwordConfirm: ""
+      description: "",
+      passwordConfirm: "",
+      profilePic: ""
    }
 
 
@@ -39,11 +41,14 @@ class signup extends Component {
                phone: this.state.phone,
                city: this.state.city,
                state: this.state.state,
-               bio: this.state.bio
-
+               description: this.state.description,
+               profilePic: this.state.profilePic
             }
+
+            console.log(signupData)
+
             await API.signup(signupData).then(res => {
-               
+
                this.props.history.push(`/trading-post/signin`);
                console.log(res)
             });
@@ -59,8 +64,10 @@ class signup extends Component {
                phone: "",
                city: "",
                state: "",
-               bio: "",
-               passwordConfirm: ""
+               description: "",
+               passwordConfirm: "",
+               profilePic: "",
+               bio: ""
             });
          } else {
             console.log("Make sure your passwords match.")
@@ -73,80 +80,136 @@ class signup extends Component {
    render() {
 
       return (
-         <div>
+         <div className="container formContent">
             <form>
-               <input
-                  value={this.state.firstName}
-                  onChange={this.handleInputChange}
-                  name="firstName"
-                  placeholder="Firstname"
-                  type="text"
-               />
-               <input
-                  value={this.state.lastName}
-                  onChange={this.handleInputChange}
-                  name="lastName"
-                  placeholder="Lastname"
-                  type="text"
-               />
-               <input
-                  value={this.state.userName}
-                  onChange={this.handleInputChange}
-                  name="userName"
-                  placeholder="Username"
-                  type="text"
-               />
-               <input
-                  value={this.state.email}
-                  onChange={this.handleInputChange}
-                  name="email"
-                  placeholder="Email"
-                  type="Email"
-               />
-               <input
-                  value={this.state.password}
-                  onChange={this.handleInputChange}
-                  name="password"
-                  placeholder="Password"
-                  type="password"
-               />
+               <h2 className="center-align">Sign Up</h2>
+               <div className="row">
+                  <div className="input-field col s6">
+                     <i class="material-icons prefix">person</i>
+                     <input
+                        value={this.state.firstName}
+                        onChange={this.handleInputChange}
+                        name="firstName"
+                        placeholder="First Name"
+                        type="text"
+                     />
+                  </div>
+                  <div className="input-field col s6">
+                     <input
+                        value={this.state.lastName}
+                        onChange={this.handleInputChange}
+                        name="lastName"
+                        placeholder="Last Name"
+                        type="text"
+                     />
+                  </div>
+               </div>
+               <div className="row">
+                  <div className=" input-field col s12">
+                     <i class="material-icons prefix">account_circle</i>
+                     <input
+                        value={this.state.userName}
+                        onChange={this.handleInputChange}
+                        name="userName"
+                        placeholder="Username"
+                        type="text"
+                     />
+                  </div>
+               </div>
+               <div className="row">
+                  <div className=" input-field col s12">
+                     <i class="material-icons prefix">email</i>
+                     <input
+                        value={this.state.email}
+                        onChange={this.handleInputChange}
+                        name="email"
+                        placeholder="Email"
+                        type="Email"
+                     />
+                  </div>
+               </div>
+               <div className="row">
+                  <div className=" input-field col s6">
+                     <i class="material-icons prefix">security</i>
+                     <input
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                        name="password"
+                        placeholder="Password"
+                        type="password"
+                     />
+                  </div>
+                  <div className=" input-field col s6">
+                     <input
+                        value={this.state.passwordConfirm}
+                        onChange={this.handleInputChange}
+                        name="passwordConfirm"
+                        placeholder="Confirm password"
+                        type="password"
+                     />
+                  </div>
+               </div>
+               <div className="row">
+                  <div className=" input-field col s12">
+                     <i class="material-icons prefix">phone</i>
+                     <input
+                        value={this.state.phone}
+                        onChange={this.handleInputChange}
+                        name="phone"
+                        placeholder="Phone"
+                        type="text"
+                     />
+                  </div>
+               </div>
+               <div className="row">
+                  <div className=" input-field col s6">
+                     <i class="material-icons prefix">location_on</i>
+                     <input
+                        value={this.state.city}
+                        onChange={this.handleInputChange}
+                        name="city"
+                        placeholder="City"
+                        type="text"
+                     />
 
-               <input
-                  value={this.state.passwordConfirm}
-                  onChange={this.handleInputChange}
-                  name="passwordConfirm"
-                  placeholder="Confirm password"
-                  type="password"
-               />
-               <input
-                  value={this.state.phone}
-                  onChange={this.handleInputChange}
-                  name="phone"
-                  placeholder="Phone"
-                  type="text"
-               />
-               <input
-                  value={this.state.city}
-                  onChange={this.handleInputChange}
-                  name="city"
-                  placeholder="City"
-                  type="text"
-               />
-               <input
-                  value={this.state.state}
-                  onChange={this.handleInputChange}
-                  name="state"
-                  placeholder="State"
-                  type="text"
-               />
-               <input
-                  value={this.state.bio}
-                  onChange={this.handleInputChange}
-                  name="bio"
-                  placeholder="Bio"
-                  type="text"
-               />
-               <button onClick={this.handleFormSubmit}>
+                  </div>
+
+                  <div className="input-field col s6">
+
+                     <input
+                        value={this.state.state}
+                        onChange={this.handleInputChange}
+                        name="state"
+                        placeholder="State"
+                        type="text"
+                     />
+                  </div>
+               </div>
+               <div className="row">
+                  <div className="input-field col s12">
+                     <i class="material-icons prefix">description</i>
+                     <input
+                        value={this.state.bio}
+                        onChange={this.handleInputChange}
+                        name="bio"
+                        placeholder="Bio"
+                        type="text"
+                     />
+                  </div>
+               </div>
+               <div className="row">
+                  <div className="input-field col s12">
+                     <i class="material-icons prefix">picture</i>
+                     <input
+                        value={this.state.bio}
+                        onChange={this.handleInputChange}
+                        name="profilePic"
+                        placeholder="Profile picture link"
+                        type="text"
+                     />
+                  </div>
+               </div>
+               <button className="waves-effect waves-light btn-small" onClick={this.handleFormSubmit}>
                   Sign Up
               </button>
             </form>

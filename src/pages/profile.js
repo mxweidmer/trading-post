@@ -68,7 +68,15 @@ class Profile extends Component {
     };
 
     deleteUserItem = (userId, itemId) => {
-        API.deleteItem(userId, itemId).then(res => console.log(res))
+        API.deleteItem(userId, itemId).then(res => {
+            console.log(res)
+            this.props.history.push("/trading-post/profile/" + this.state._id);
+        })
+    }
+
+    routeChangeAddItem = () => {
+        console.log("id " + this.state._id);
+        this.props.history.push("/trading-post/postitem/" + this.state._id);
     }
 
     render() {
@@ -82,6 +90,16 @@ class Profile extends Component {
                     image={this.state.profilePic}
                     username={this.state.userName}
                     description={this.state.bio} />
+
+                <Row>
+                    <div className="col s6">
+                    </div>
+                    <div className="col s6">
+                        <button className="waves-effect waves-light btn-small" style={{ fontSize: 10 }} onClick={this.routeChangeAddItem}>Add Item</button>
+                        {/*  {this.renderRedirect()}
+                        <button className="waves-effect waves-light btn-small" style={{ fontSize: 10 }} onClick={this.setRedirect}>Add Item</button>  */}
+                    </div>
+                </Row>
 
                 <Row>
                     <List

@@ -44,7 +44,7 @@ const content = {
 function Card(props) {
     return (
         <div>
-            <div className="col s4">
+            <div className="col l4 m6 s12">
                 <div className="card z-depth-4">
                     <div className="card-image" >
                         <a className="modal-trigger" href={`#${props.id}`}><img className="responsive-img" style={cardImageStyle} src={props.image} alt={props.title} /></a>

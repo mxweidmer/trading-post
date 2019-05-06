@@ -72,6 +72,8 @@ class UpdateItem extends Component {
       })
       .then(res => {
         console.log("The item was updated " + res.data);
+
+        this.props.history.push(`/trading-post/profile/${sessionStorage.getItem("UserId")}`);
         //this.renderRedirect(); 
         //add later redirect to the profile page if the item was added sucessfully
         //this.setState({ returnedItems: res.data, searchTerm: "" });     5ccf460d1cae0a3028fe84fd

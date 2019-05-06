@@ -12,7 +12,7 @@ class signup extends Component {
       phone: "",
       city: "",
       state: "",
-      bio: "",
+      description: "",
       passwordConfirm: ""
    }
 
@@ -39,9 +39,11 @@ class signup extends Component {
                phone: this.state.phone,
                city: this.state.city,
                state: this.state.state,
-               bio: this.state.bio
-
+               description: this.state.description
             }
+
+            console.log(signupData)
+
             await API.signup(signupData).then(res => {
                
                this.props.history.push(`/trading-post/signin`);
@@ -59,7 +61,7 @@ class signup extends Component {
                phone: "",
                city: "",
                state: "",
-               bio: "",
+               description: "",
                passwordConfirm: ""
             });
          } else {
@@ -140,9 +142,9 @@ class signup extends Component {
                   type="text"
                />
                <input
-                  value={this.state.bio}
+                  value={this.state.description}
                   onChange={this.handleInputChange}
-                  name="bio"
+                  name="description"
                   placeholder="Bio"
                   type="text"
                />

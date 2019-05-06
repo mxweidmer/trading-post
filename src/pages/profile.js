@@ -126,16 +126,6 @@ class Profile extends Component {
                 </Row>
 
                 <Row>
-                    <div className="col s6">
-                    </div>
-                    <div className="col s6">
-                        <button className="waves-effect waves-light btn-small" style={{ fontSize: 10 }} onClick={this.routeChangeAddItem}>Add Item</button>
-                        {/*  {this.renderRedirect()}
-                        <button className="waves-effect waves-light btn-small" style={{ fontSize: 10 }} onClick={this.setRedirect}>Add Item</button>  */}
-                    </div>
-                </Row>
-
-                <Row>
                     <List
                         listTitle="Posts"
                         userId={this.state._id}

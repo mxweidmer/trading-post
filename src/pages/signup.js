@@ -201,7 +201,7 @@ class signup extends Component {
                   <div className="input-field col s12">
                      <i class="material-icons prefix">picture</i>
                      <input
-                        value={this.state.bio}
+                        value={this.state.profilePic}
                         onChange={this.handleInputChange}
                         name="profilePic"
                         placeholder="Profile picture link"

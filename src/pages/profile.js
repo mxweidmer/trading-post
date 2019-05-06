@@ -94,8 +94,9 @@ class Profile extends Component {
     //method to delete an item 
     deleteUserItem = (userId, itemId) => {
         API.deleteItem(userId, itemId).then(res => {
-            console.log(res)
             this.props.history.push("/trading-post/profile/" + this.state._id);
+
+            this.loadUser(sessionStorage.getItem("UserId"))
         })
     }
 

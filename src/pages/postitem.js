@@ -8,10 +8,10 @@ import styles from '../components/Postform/style.css';
 
 class PostItem extends Component {
 
-  constructor(props) {
+  /* constructor(props) {
     super(props);
     this.selectCategory = React.createRef();
-  }
+  } */
 
   state = {
     title: "",
@@ -37,23 +37,14 @@ class PostItem extends Component {
     console.log("id " + id);  
     this.setState({_owner: id});
     //this.selectCategory.;
+    
    
   } 
-
-
-  /* renderRedirect = () => {
-   this.setState({
-     redirect: true
-   })
-     return <Redirect to='/trading-post/profile'/>
-   } */
 
 
   //form submit event handler
   handleFormSubmit = (event) => {
     event.preventDefault();
-    /* const fileUpload = new FormData();
-    fileUpload.append("image", this.state.picture); */
     console.log(this.state.selectedCategory);
 
     API.createNewItem(
@@ -94,7 +85,7 @@ class PostItem extends Component {
 
               <div className="input-field col s6">
                 <div>
-                  <select ref={this.selectCategory} id="dropdownCategory" className="select-dropdown"  value={this.state.selectedCategory} id="dropdown"
+                  <select ref={this.selectCategory} className="select-dropdown"  value={this.state.selectedCategory} id="dropdown"
                     onChange={(e) => this.setState({ selectedCategory: e.target.value })}>
                     {this.state.categories.map((category) => <option key={category} value={category}>{category}</option>)}
                   </select>

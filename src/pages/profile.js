@@ -68,7 +68,15 @@ class Profile extends Component {
     };
 
     deleteUserItem = (userId, itemId) => {
-        API.deleteItem(userId, itemId).then(res => console.log(res))
+        API.deleteItem(userId, itemId).then(res => {
+            console.log(res)
+            this.props.history.push("/trading-post/profile/" + this.state._id);
+        })
+    }
+
+    routeChangeAddItem = () => {
+        console.log("id " + this.state._id);
+        this.props.history.push("/trading-post/postitem/" + this.state._id);
     }
 
     render() {

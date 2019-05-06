@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.js": "/trading-post/static/js/main.687d19fd.chunk.js",
-    "main.js.map": "/trading-post/static/js/main.687d19fd.chunk.js.map",
+    "main.css": "/trading-post/static/css/main.0483b470.chunk.css",
+    "main.js": "/trading-post/static/js/main.09e46507.chunk.js",
+    "main.js.map": "/trading-post/static/js/main.09e46507.chunk.js.map",
     "runtime~main.js": "/trading-post/static/js/runtime~main.578fbe24.js",
     "runtime~main.js.map": "/trading-post/static/js/runtime~main.578fbe24.js.map",
-    "static/js/2.4c3ce37e.chunk.js": "/trading-post/static/js/2.4c3ce37e.chunk.js",
-    "static/js/2.4c3ce37e.chunk.js.map": "/trading-post/static/js/2.4c3ce37e.chunk.js.map",
+    "static/js/2.0e15ab66.chunk.js": "/trading-post/static/js/2.0e15ab66.chunk.js",
+    "static/js/2.0e15ab66.chunk.js.map": "/trading-post/static/js/2.0e15ab66.chunk.js.map",
     "index.html": "/trading-post/index.html",
-    "precache-manifest.5e08ca0cf1d5a78de0d8ec95722ec422.js": "/trading-post/precache-manifest.5e08ca0cf1d5a78de0d8ec95722ec422.js",
-    "service-worker.js": "/trading-post/service-worker.js"
+    "precache-manifest.26a150e5480a7edc51f13c5d87249a72.js": "/trading-post/precache-manifest.26a150e5480a7edc51f13c5d87249a72.js",
+    "service-worker.js": "/trading-post/service-worker.js",
+    "static/css/main.0483b470.chunk.css.map": "/trading-post/static/css/main.0483b470.chunk.css.map"
   }
 }

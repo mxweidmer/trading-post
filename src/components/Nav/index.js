@@ -32,7 +32,7 @@ function NavBar(props) {
 
                     {/* <li><a className="waves-effect waves-light btn" href="/trading-post/signup">Sign up<i
                         className="material-icons right">account_circle</i></a></li> */}
-                        <Link to="/trading-post/signup">Sign Up</Link>
+                        <li><Link to="/trading-post/signup">Sign Up</Link></li>
                 </ul>
             </div>
         </nav>

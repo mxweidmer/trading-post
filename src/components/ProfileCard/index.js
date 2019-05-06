@@ -35,7 +35,7 @@ export function List(props) {
                             <tr key={item._id}>
                                 <td><a href={"/trading-post/item/" + item._id}>{item.title}</a></td>
                                 <td><a href={"/trading-post/updateitem/" + item._id}>Update Item</a></td>
-                                <td><button onClick={() => props.deleteUserItem(UserId, item._id)}>Delete Item</button></td>
+                                <td><button className="waves-effect waves-light btn-small" style={{fontSize: 10}} onClick={() => props.deleteUserItem(UserId, item._id)}>Delete Item</button></td>
                             </tr>
                         ))
                         }

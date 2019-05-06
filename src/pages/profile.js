@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { ProfileTop, List } from '../components/ProfileCard';
 import { Row } from '../components/Grid';
 import API from "../utils/API";
+import { Redirect } from 'react-router-dom';
 
 
 
@@ -26,14 +27,37 @@ class Profile extends Component {
         wishlist: [],
         searchTerm: "",
         pg: "Profile",
+        redirect: false,
         categories: ['General', 'Books', 'Electronics', 'Jewerly', 'Tools', 'Clothing', 'Furniture', 'Games', 'Sports Equipment', 'Appliances']
     };
 
+    setRedirect = () => {
+        this.setState({
+            redirect: true
+        })
+    }
 
+    renderRedirect = () => {
+        let path = '/trading-post/postitem/' + this.state._id;
+        if (this.state.redirect) {
+          return <Redirect to= {path} />
+        }
+      }
+
+    //method to redirect to postitem page on 'Add Item' button click
+    routeChangeAddItem = () => {
+        console.log("id " + this.state._id);
+        let path = "/trading-post/postitem/" + this.state._id;
+        this.props.history.push(path);
+    }
+
+    //we will get iser id in the props passed to this method
     componentDidMount() {
         const { id } = this.props.match.params
         console.log("id " + id);
-        this.loadUser(id, (id) => { this.setState._id = id });
+        this.setState._id = id;
+        this.loadUser(id);
+        //this.loadUser(id, (id) => { this.setState._id = id }); ???
 
     }
 
@@ -67,6 +91,7 @@ class Profile extends Component {
         //.catch(err => console.log(err));
     };
 
+    //method to delete an item 
     deleteUserItem = (userId, itemId) => {
         API.deleteItem(userId, itemId).then(res => {
             console.log(res)
@@ -90,6 +115,15 @@ class Profile extends Component {
                     image={this.state.profilePic}
                     username={this.state.userName}
                     description={this.state.bio} />
+                <Row>
+                    <div className="col s6">
+                    </div>
+                    <div className="col s6">
+                        <button className="waves-effect waves-light btn-small" style={{ fontSize: 10 }} onClick={this.routeChangeAddItem}>Add Item</button>
+                       {/*  {this.renderRedirect()}
+                        <button className="waves-effect waves-light btn-small" style={{ fontSize: 10 }} onClick={this.setRedirect}>Add Item</button>  */}
+                    </div>
+                </Row>
 
                 <Row>
                     <div className="col s6">

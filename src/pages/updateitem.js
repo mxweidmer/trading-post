@@ -62,7 +62,8 @@ class UpdateItem extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     console.log(this.state.selectedCategory);
-
+    let path = "/trading-post/profile/" + sessionStorage.getItem("UserId");
+    console.log("path: " + path);
     API.updateExistingItem(this.state._id,
       {
         title: this.state.title,

@@ -21,7 +21,6 @@ export default {
     },
     //post request for the create a new item
     createNewItem: function (userId, postData) {
-        //return axios.post("https://trading-post-server.herokuapp.com/api/items/:userid", postData)
         console.log(postData);
         return axios.post(`https://trading-post-server.herokuapp.com/api/items/${userId}`, postData)
         /* example
@@ -43,12 +42,9 @@ export default {
 
     getUserInfo: function (userid) {
         return axios.get("https://trading-post-server.herokuapp.com/api/users/" + userid)
-        //return axios.get("https://trading-post-server.herokuapp.com/api/users/cca717879f2d60017aed66e");
     },
     //get request to receive items based on the category and the search term
     getSearchedItems: function (category, searchTerm) {
-        /*  category = "Electronics";
-         searchTerm = "Apple"; */
         console.log("category: " + category);
         console.log("searchTerm: " + searchTerm);
         return axios.get("https://trading-post-server.herokuapp.com/api/categories/" + category + "/" + searchTerm)

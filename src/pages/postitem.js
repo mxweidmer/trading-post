@@ -8,6 +8,7 @@ import styles from '../components/Postform/style.css';
 
 class PostItem extends Component {
 
+
   /* constructor(props) {
     super(props);
     this.selectCategory = React.createRef();
@@ -15,6 +16,7 @@ class PostItem extends Component {
 
   state = {
     title: "",
+    optionItems: [],
     picture: "",
     description: "",
     selectedCategory: "General",
@@ -37,6 +39,9 @@ class PostItem extends Component {
     console.log("id " + id);  
     this.setState({_owner: id});
     //this.selectCategory.;
+   /*  let categOptions = this.state.categories;
+    this.setState.optionItems = categOptions.map((category) =>
+                <option key={category.name}>{category.name}</option>) */
     
    
   } 
@@ -85,9 +90,10 @@ class PostItem extends Component {
 
               <div className="input-field col s6">
                 <div>
-                  <select ref={this.selectCategory} className="select-dropdown"  value={this.state.selectedCategory} id="dropdown"
+                  <select className="select-dropdown"  value={this.state.selectedCategory} id="dropdown"
                     onChange={(e) => this.setState({ selectedCategory: e.target.value })}>
-                    {this.state.categories.map((category) => <option key={category} value={category}>{category}</option>)}
+                  {this.state.categories.map((category) => <option key={category} value={category}>{category}</option>)}
+              
                   </select>
                 </div>
               </div>

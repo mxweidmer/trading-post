@@ -1,14 +1,24 @@
 import React from 'react'
 
+const picStyle = {
+    border: "2px solid #00838f"
+}
+
+const nameStyle= {
+    textStyle: "italic",
+    textShadow: "1px 1px"
+}
+
 export function ProfileTop(props) {
     return (
         <div className="row">
             <div className="container">
                 <div className="col s4">
-                    <img src={props.image} className="circle profile-pic responsive-img z-depth-4" alt="Profile Pic" />
+                    <img src={props.image} style={picStyle} className="circle profile-pic responsive-img z-depth-4 " alt="Profile Pic" />
                 </div>
-                <div className="col s7 push-s1">
-                    <h3>{props.username}</h3>
+                <div className="col s7">
+                    <h3 className="left-align" style={nameStyle}>{props.username}</h3><hr/>
+                    
                     <p>{props.description}</p>
                 </div>
             </div>

@@ -12,6 +12,7 @@ function NavBar(props) {
 
     const logout = () => {
         sessionStorage.removeItem("UserId");
+        window.location.reload();
     }
 
     return (
@@ -29,9 +30,10 @@ function NavBar(props) {
                     {/* {showSignIn && (<li><a className="waves-effect waves-light btn" href="/trading-post/signin">Sign In<i
                         className="material-icons right">account_circle</i></a></li>)} */}
                     {showSignIn && (<li><Link to="/trading-post/signin">Sign In</Link></li>)}
-                    
-                    {showSignOut && (<li><a className="waves-effect waves-light btn" onClick={logout}>Sign Out<i
-                        className="material-icons right">account_circle</i></a></li>)}
+
+                    {/* {showSignOut && (<li><a className="waves-effect waves-light btn" onClick={logout}>Sign Out<i
+                        className="material-icons right">account_circle</i></a></li>)} */}
+                    {showSignOut && (<li><Link to="/trading-post" onClick={logout}>Sign Out</Link></li>)}
 
                     {/* <li><a className="waves-effect waves-light btn" href="/trading-post/signup">Sign up<i
                         className="material-icons right">account_circle</i></a></li> */}

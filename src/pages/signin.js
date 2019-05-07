@@ -44,6 +44,7 @@ class signin extends Component {
                });
                
                this.props.history.push(`/trading-post/profile/${res.data.user_id}`);
+               window.location.reload();
                
             });
      } 

@@ -40,9 +40,9 @@ class Profile extends Component {
     renderRedirect = () => {
         let path = '/trading-post/postitem/' + this.state._id;
         if (this.state.redirect) {
-          return <Redirect to= {path} />
+            return <Redirect to={path} />
         }
-      }
+    }
 
     //method to redirect to postitem page on 'Add Item' button click
     routeChangeAddItem = () => {
@@ -107,46 +107,55 @@ class Profile extends Component {
 
     render() {
         console.log(this.state)
-        return (
-            <div>
 
-                <br />
+        if (sessionStorage.getItem("UserId")) {
+            return (
+                <div>
 
-                <ProfileTop
-                    image={this.state.profilePic}
-                    username={this.state.userName}
-                    description={this.state.bio} />
-                <Row>
-                    <div className="col s6">
-                    </div>
-                    <div className="col s6">
-                        <button className="waves-effect waves-light btn-small" style={{ fontSize: 10 }} onClick={this.routeChangeAddItem}>Add Item</button>
-                       {/*  {this.renderRedirect()}
-                        <button className="waves-effect waves-light btn-small" style={{ fontSize: 10 }} onClick={this.setRedirect}>Add Item</button>  */}
-                    </div>
-                </Row>
+                    <br />
 
-                <Row>
-                    <List
-                        listTitle="Posts"
-                        userId={this.state._id}
-                        deleteUserItem={this.deleteUserItem}
-                        items={
-                            this.state.items
-                        }
+                    <ProfileTop
+                        image={this.state.profilePic}
+                        username={this.state.userName}
+                        description={this.state.bio} />
+                    <Row>
+                        <div className="col s6">
+                        </div>
+                        <div className="col s6">
+                            <button className="waves-effect waves-light btn-small" style={{ fontSize: 10 }} onClick={this.routeChangeAddItem}>Add Item</button>
+                            {/*  {this.renderRedirect()}
+                            <button className="waves-effect waves-light btn-small" style={{ fontSize: 10 }} onClick={this.setRedirect}>Add Item</button>  */}
+                        </div>
+                    </Row>
 
-                    />
-                    <List
-                        listTitle="Wishlist"
-                        userId={this.state._id}
-                        items={
-                            this.state.wishlist
-                        }
+                    <Row>
+                        <List
+                            listTitle="Posts"
+                            userId={this.state._id}
+                            deleteUserItem={this.deleteUserItem}
+                            items={
+                                this.state.items
+                            }
 
-                    />
-                </Row>
-            </div>
-        )
+                        />
+                        <List
+                            listTitle="Wishlist"
+                            userId={this.state._id}
+                            items={
+                                this.state.wishlist
+                            }
+
+                        />
+                    </Row>
+                </div>
+            )
+        } else {
+            return (
+                <Redirect to="/trading-post"></Redirect>
+            )
+        }
+
+
     }
 
 }

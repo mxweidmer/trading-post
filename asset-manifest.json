@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/trading-post/static/css/main.14b26989.chunk.css",
-    "main.js": "/trading-post/static/js/main.47efcdce.chunk.js",
-    "main.js.map": "/trading-post/static/js/main.47efcdce.chunk.js.map",
+    "main.css": "/trading-post/static/css/main.67460f94.chunk.css",
+    "main.js": "/trading-post/static/js/main.75f03723.chunk.js",
+    "main.js.map": "/trading-post/static/js/main.75f03723.chunk.js.map",
     "runtime~main.js": "/trading-post/static/js/runtime~main.578fbe24.js",
     "runtime~main.js.map": "/trading-post/static/js/runtime~main.578fbe24.js.map",
-    "static/js/2.3528c828.chunk.js": "/trading-post/static/js/2.3528c828.chunk.js",
-    "static/js/2.3528c828.chunk.js.map": "/trading-post/static/js/2.3528c828.chunk.js.map",
+    "static/js/2.9321bead.chunk.js": "/trading-post/static/js/2.9321bead.chunk.js",
+    "static/js/2.9321bead.chunk.js.map": "/trading-post/static/js/2.9321bead.chunk.js.map",
     "index.html": "/trading-post/index.html",
-    "precache-manifest.8a71d11b31165641901275b33ca8810e.js": "/trading-post/precache-manifest.8a71d11b31165641901275b33ca8810e.js",
+    "precache-manifest.5613fa61711aa53ca8fa36f2eb949987.js": "/trading-post/precache-manifest.5613fa61711aa53ca8fa36f2eb949987.js",
     "service-worker.js": "/trading-post/service-worker.js",
-    "static/css/main.14b26989.chunk.css.map": "/trading-post/static/css/main.14b26989.chunk.css.map"
+    "static/css/main.67460f94.chunk.css.map": "/trading-post/static/css/main.67460f94.chunk.css.map"
   }
 }

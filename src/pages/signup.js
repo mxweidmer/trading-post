@@ -13,8 +13,9 @@ class signup extends Component {
       phone: "",
       city: "",
       state: "",
-      bio: "",
-      passwordConfirm: ""
+      description: "",
+      passwordConfirm: "",
+      profilePic: ""
    }
 
 
@@ -40,9 +41,12 @@ class signup extends Component {
                phone: this.state.phone,
                city: this.state.city,
                state: this.state.state,
-               bio: this.state.bio
-
+               description: this.state.description,
+               profilePic: this.state.profilePic
             }
+
+            console.log(signupData)
+
             await API.signup(signupData).then(res => {
 
                this.props.history.push(`/trading-post/signin`);
@@ -60,8 +64,10 @@ class signup extends Component {
                phone: "",
                city: "",
                state: "",
-               bio: "",
-               passwordConfirm: ""
+               description: "",
+               passwordConfirm: "",
+               profilePic: "",
+               bio: ""
             });
          } else {
             console.log("Make sure your passwords match.")
@@ -168,7 +174,7 @@ class signup extends Component {
 
                   </div>
 
-                  <div className=" input-field col s6">
+                  <div className="input-field col s6">
 
                      <input
                         value={this.state.state}
@@ -181,12 +187,24 @@ class signup extends Component {
                </div>
                <div className="row">
                   <div className="input-field col s12">
-                  <i class="material-icons prefix">description</i>
+                     <i class="material-icons prefix">description</i>
                      <input
                         value={this.state.bio}
                         onChange={this.handleInputChange}
                         name="bio"
                         placeholder="Bio"
+                        type="text"
+                     />
+                  </div>
+               </div>
+               <div className="row">
+                  <div className="input-field col s12">
+                     <i class="material-icons prefix">picture</i>
+                     <input
+                        value={this.state.profilePic}
+                        onChange={this.handleInputChange}
+                        name="profilePic"
+                        placeholder="Profile picture link"
                         type="text"
                      />
                   </div>

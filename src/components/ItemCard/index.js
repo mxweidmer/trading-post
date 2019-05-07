@@ -1,4 +1,5 @@
 import React from 'react'
+import style from "./style.css"
 
 const imageStyle = {
     width: "50%",
@@ -19,15 +20,18 @@ function ItemCard(props) {
         <div className="container">
             <div className="col s10 z-depth-4">
                 <div className="card ">
-                    <h2 className="center">{props.title}</h2>
-                    <div className="row">
-                        <div className="card-image" >
-                            <img className="responsive-img" style={imageStyle} src={props.picture} alt={props.title} />
 
-                        </div>
-                        <div className="card-content">
 
-                            <h5>Description</h5>
+                <h2 className="center" style={{fontSize: 40 , padding: 20, background: '#00838f',color:'white' }}>{props.title}</h2>
+                        <div className="row">
+                    <div className="card-image" >
+                        <img className="responsive-img" style={imageStyle} src={props.picture} alt={props.title} />
+
+                    </div>
+                    <div className="card-content">
+                        
+                            <h5>Description :</h5>
+
                             <div className="col s8">
                                 <p>{props.description}</p>
                             </div>

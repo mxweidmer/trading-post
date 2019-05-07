@@ -47,7 +47,8 @@ function Card(props) {
             <div className="col l4 m6 s12">
                 <div className="card z-depth-4">
                     <div className="card-image" >
-                        <a className="modal-trigger" href={`#${props.id}`}><img className="responsive-img" style={cardImageStyle} src={props.image} alt={props.title} /></a>
+                        <a className="modal-trigger" href={`#${props.id}`}><img className="responsive-img" 
+                        style={cardImageStyle} src={props.image} alt={props.title} /></a>
                         <div className="valign-wrapper" style={titleDiv}>
                             <p className="truncate" style={titleText} >{props.title}</p>
                         </div>
@@ -56,7 +57,8 @@ function Card(props) {
                         <p className="truncate">{props.description}</p>
                         <div className="row">
                         <div className="col s2 offset-s7">
-                        <a className="card-action btn text-center modal-trigger right-align cyan" style={buttonStyle} href={`/trading-post/item/${props.id}`}>Details</a>
+                        <a className="card-action btn text-center modal-trigger right-align cyan" 
+                        style={buttonStyle} href={`/trading-post/item/${props.id}`}>Details</a>
                         </div>
                         </div>
                     </div>
